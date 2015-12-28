@@ -13,6 +13,9 @@
 		01C28AA71C3127F900FDDB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AA51C3127F900FDDB59 /* Main.storyboard */; };
 		01C28AA91C3127F900FDDB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AA81C3127F900FDDB59 /* Assets.xcassets */; };
 		01C28AAC1C3127F900FDDB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AAA1C3127F900FDDB59 /* LaunchScreen.storyboard */; };
+		01C28AB51C312AD700FDDB59 /* AXChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB41C312AD700FDDB59 /* AXChart.m */; };
+		01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB81C312B1F00FDDB59 /* AXLineChart.m */; };
+		479F953A1C56099F87237890 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF2E075A55EF3421FB208CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,13 @@
 		01C28AA81C3127F900FDDB59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01C28AAB1C3127F900FDDB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01C28AAD1C3127F900FDDB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01C28AB31C312AD700FDDB59 /* AXChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXChart.h; path = AXChartKits/AXChart.h; sourceTree = "<group>"; };
+		01C28AB41C312AD700FDDB59 /* AXChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChart.m; path = AXChartKits/AXChart.m; sourceTree = "<group>"; };
+		01C28AB71C312B1F00FDDB59 /* AXLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXLineChart.h; path = AXChartKits/AXLineChart.h; sourceTree = "<group>"; };
+		01C28AB81C312B1F00FDDB59 /* AXLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXLineChart.m; path = AXChartKits/AXLineChart.m; sourceTree = "<group>"; };
+		5CF2E075A55EF3421FB208CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E30F54D9C023CFC7A1750F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BA2A2B3CA17D5484B1345B72 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479F953A1C56099F87237890 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,8 @@
 			children = (
 				01C28A9B1C3127F900FDDB59 /* AXChartKits */,
 				01C28A9A1C3127F900FDDB59 /* Products */,
+				3175D5B4D88640560BE27A46 /* Pods */,
+				46D321D923182C304891B81C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +75,7 @@
 				01C28AA01C3127F900FDDB59 /* AppDelegate.m */,
 				01C28AA21C3127F900FDDB59 /* ViewController.h */,
 				01C28AA31C3127F900FDDB59 /* ViewController.m */,
+				01C28AB61C312ADB00FDDB59 /* AXChartKits */,
 				01C28AA51C3127F900FDDB59 /* Main.storyboard */,
 				01C28AA81C3127F900FDDB59 /* Assets.xcassets */,
 				01C28AAA1C3127F900FDDB59 /* LaunchScreen.storyboard */,
@@ -79,6 +93,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		01C28AB61C312ADB00FDDB59 /* AXChartKits */ = {
+			isa = PBXGroup;
+			children = (
+				01C28AB31C312AD700FDDB59 /* AXChart.h */,
+				01C28AB41C312AD700FDDB59 /* AXChart.m */,
+				01C28AB71C312B1F00FDDB59 /* AXLineChart.h */,
+				01C28AB81C312B1F00FDDB59 /* AXLineChart.m */,
+			);
+			name = AXChartKits;
+			sourceTree = "<group>";
+		};
+		3175D5B4D88640560BE27A46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4E30F54D9C023CFC7A1750F /* Pods.debug.xcconfig */,
+				BA2A2B3CA17D5484B1345B72 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		46D321D923182C304891B81C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CF2E075A55EF3421FB208CC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01C28AB01C3127F900FDDB59 /* Build configuration list for PBXNativeTarget "AXChartKits" */;
 			buildPhases = (
+				083B999273297290E212D9E6 /* Check Pods Manifest.lock */,
 				01C28A951C3127F900FDDB59 /* Sources */,
 				01C28A961C3127F900FDDB59 /* Frameworks */,
 				01C28A971C3127F900FDDB59 /* Resources */,
+				D5F788EFB405C5BE4B5EEA81 /* Embed Pods Frameworks */,
+				6969E321A2684FE72765B9AB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,14 +189,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		083B999273297290E212D9E6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6969E321A2684FE72765B9AB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5F788EFB405C5BE4B5EEA81 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		01C28A951C3127F900FDDB59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				01C28AA41C3127F900FDDB59 /* ViewController.m in Sources */,
+				01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */,
 				01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */,
 				01C28A9E1C3127F900FDDB59 /* main.m in Sources */,
+				01C28AB51C312AD700FDDB59 /* AXChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +354,7 @@
 		};
 		01C28AB11C3127F900FDDB59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4E30F54D9C023CFC7A1750F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AXChartKits/Info.plist;
@@ -270,6 +366,7 @@
 		};
 		01C28AB21C3127F900FDDB59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA2A2B3CA17D5484B1345B72 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AXChartKits/Info.plist;
@@ -298,6 +395,7 @@
 				01C28AB21C3127F900FDDB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
