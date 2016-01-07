@@ -7,32 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0125A1A81C3383E4001C8F3B /* AXPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A1A71C3383E4001C8F3B /* AXPieChart.m */; };
+		0125A1AB1C3384E4001C8F3B /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A1AA1C3384E4001C8F3B /* PieChartViewController.m */; };
 		01C28A9E1C3127F900FDDB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28A9D1C3127F900FDDB59 /* main.m */; };
 		01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AA01C3127F900FDDB59 /* AppDelegate.m */; };
-		01C28AA41C3127F900FDDB59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AA31C3127F900FDDB59 /* ViewController.m */; };
+		01C28AA41C3127F900FDDB59 /* LineChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AA31C3127F900FDDB59 /* LineChartViewController.m */; };
 		01C28AA71C3127F900FDDB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AA51C3127F900FDDB59 /* Main.storyboard */; };
 		01C28AA91C3127F900FDDB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AA81C3127F900FDDB59 /* Assets.xcassets */; };
 		01C28AAC1C3127F900FDDB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AAA1C3127F900FDDB59 /* LaunchScreen.storyboard */; };
-		01C28AB51C312AD700FDDB59 /* AXChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB41C312AD700FDDB59 /* AXChart.m */; };
+		01C28AB51C312AD700FDDB59 /* AXChartBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB41C312AD700FDDB59 /* AXChartBase.m */; };
 		01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB81C312B1F00FDDB59 /* AXLineChart.m */; };
+		01C28ABC1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28ABB1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.m */; };
+		01D3D4621C3B96B4002AC542 /* AXCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4611C3B96B4002AC542 /* AXCircleChart.m */; };
+		01D3D4651C3B9FD7002AC542 /* CircleChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */; };
 		479F953A1C56099F87237890 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF2E075A55EF3421FB208CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0125A1A61C3383E4001C8F3B /* AXPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXPieChart.h; path = AXChartKits/AXPieChart.h; sourceTree = "<group>"; };
+		0125A1A71C3383E4001C8F3B /* AXPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXPieChart.m; path = AXChartKits/AXPieChart.m; sourceTree = "<group>"; };
+		0125A1A91C3384E4001C8F3B /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
+		0125A1AA1C3384E4001C8F3B /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController.m; sourceTree = "<group>"; };
 		01C28A991C3127F900FDDB59 /* AXChartKits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXChartKits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C28A9D1C3127F900FDDB59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01C28A9F1C3127F900FDDB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		01C28AA01C3127F900FDDB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		01C28AA21C3127F900FDDB59 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		01C28AA31C3127F900FDDB59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		01C28AA21C3127F900FDDB59 /* LineChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineChartViewController.h; sourceTree = "<group>"; };
+		01C28AA31C3127F900FDDB59 /* LineChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineChartViewController.m; sourceTree = "<group>"; };
 		01C28AA61C3127F900FDDB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01C28AA81C3127F900FDDB59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01C28AAB1C3127F900FDDB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01C28AAD1C3127F900FDDB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01C28AB31C312AD700FDDB59 /* AXChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXChart.h; path = AXChartKits/AXChart.h; sourceTree = "<group>"; };
-		01C28AB41C312AD700FDDB59 /* AXChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChart.m; path = AXChartKits/AXChart.m; sourceTree = "<group>"; };
+		01C28AB31C312AD700FDDB59 /* AXChartBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXChartBase.h; path = AXChartKits/AXChartBase.h; sourceTree = "<group>"; };
+		01C28AB41C312AD700FDDB59 /* AXChartBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChartBase.m; path = AXChartKits/AXChartBase.m; sourceTree = "<group>"; };
 		01C28AB71C312B1F00FDDB59 /* AXLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXLineChart.h; path = AXChartKits/AXLineChart.h; sourceTree = "<group>"; };
 		01C28AB81C312B1F00FDDB59 /* AXLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXLineChart.m; path = AXChartKits/AXLineChart.m; sourceTree = "<group>"; };
+		01C28ABA1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "POPAnimatableProperty+AXChart.h"; path = "AXChartKits/POPAnimatableProperty+AXChart.h"; sourceTree = "<group>"; };
+		01C28ABB1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "POPAnimatableProperty+AXChart.m"; path = "AXChartKits/POPAnimatableProperty+AXChart.m"; sourceTree = "<group>"; };
+		01D3D4601C3B96B4002AC542 /* AXCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXCircleChart.h; path = AXChartKits/AXCircleChart.h; sourceTree = "<group>"; };
+		01D3D4611C3B96B4002AC542 /* AXCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXCircleChart.m; path = AXChartKits/AXCircleChart.m; sourceTree = "<group>"; };
+		01D3D4631C3B9FD7002AC542 /* CircleChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleChartViewController.h; sourceTree = "<group>"; };
+		01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleChartViewController.m; sourceTree = "<group>"; };
 		5CF2E075A55EF3421FB208CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E30F54D9C023CFC7A1750F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BA2A2B3CA17D5484B1345B72 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,8 +88,12 @@
 			children = (
 				01C28A9F1C3127F900FDDB59 /* AppDelegate.h */,
 				01C28AA01C3127F900FDDB59 /* AppDelegate.m */,
-				01C28AA21C3127F900FDDB59 /* ViewController.h */,
-				01C28AA31C3127F900FDDB59 /* ViewController.m */,
+				0125A1A91C3384E4001C8F3B /* PieChartViewController.h */,
+				0125A1AA1C3384E4001C8F3B /* PieChartViewController.m */,
+				01C28AA21C3127F900FDDB59 /* LineChartViewController.h */,
+				01C28AA31C3127F900FDDB59 /* LineChartViewController.m */,
+				01D3D4631C3B9FD7002AC542 /* CircleChartViewController.h */,
+				01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */,
 				01C28AB61C312ADB00FDDB59 /* AXChartKits */,
 				01C28AA51C3127F900FDDB59 /* Main.storyboard */,
 				01C28AA81C3127F900FDDB59 /* Assets.xcassets */,
@@ -96,10 +115,16 @@
 		01C28AB61C312ADB00FDDB59 /* AXChartKits */ = {
 			isa = PBXGroup;
 			children = (
-				01C28AB31C312AD700FDDB59 /* AXChart.h */,
-				01C28AB41C312AD700FDDB59 /* AXChart.m */,
+				01C28AB31C312AD700FDDB59 /* AXChartBase.h */,
+				01C28AB41C312AD700FDDB59 /* AXChartBase.m */,
+				0125A1A61C3383E4001C8F3B /* AXPieChart.h */,
+				0125A1A71C3383E4001C8F3B /* AXPieChart.m */,
 				01C28AB71C312B1F00FDDB59 /* AXLineChart.h */,
 				01C28AB81C312B1F00FDDB59 /* AXLineChart.m */,
+				01D3D4601C3B96B4002AC542 /* AXCircleChart.h */,
+				01D3D4611C3B96B4002AC542 /* AXCircleChart.m */,
+				01C28ABA1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.h */,
+				01C28ABB1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.m */,
 			);
 			name = AXChartKits;
 			sourceTree = "<group>";
@@ -242,11 +267,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C28AA41C3127F900FDDB59 /* ViewController.m in Sources */,
+				01C28AA41C3127F900FDDB59 /* LineChartViewController.m in Sources */,
+				01D3D4621C3B96B4002AC542 /* AXCircleChart.m in Sources */,
 				01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */,
+				0125A1AB1C3384E4001C8F3B /* PieChartViewController.m in Sources */,
+				01C28ABC1C313B9A00FDDB59 /* POPAnimatableProperty+AXChart.m in Sources */,
 				01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */,
 				01C28A9E1C3127F900FDDB59 /* main.m in Sources */,
-				01C28AB51C312AD700FDDB59 /* AXChart.m in Sources */,
+				0125A1A81C3383E4001C8F3B /* AXPieChart.m in Sources */,
+				01C28AB51C312AD700FDDB59 /* AXChartBase.m in Sources */,
+				01D3D4651C3B9FD7002AC542 /* CircleChartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

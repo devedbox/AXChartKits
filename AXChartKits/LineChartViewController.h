@@ -1,5 +1,5 @@
 //
-//  AXChart.h
+//  ViewController.h
 //  AXChartKits
 //
 //  Created by ai on 15/12/28.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AXChart : UIView
+@interface LineChartViewController : UIViewController
+
 
 @end
+
