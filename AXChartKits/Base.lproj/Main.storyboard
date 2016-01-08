@@ -273,11 +273,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nbs-1S-jBL" customClass="AXPieChart">
-                                <rect key="frame" x="180" y="180" width="240" height="240"/>
+                                <rect key="frame" x="180" y="180" width="240" height="297"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Bmb-1Z-z6G"/>
-                                    <constraint firstAttribute="height" constant="240" id="Xld-R7-5T0"/>
+                                    <constraint firstAttribute="height" constant="297" id="Xld-R7-5T0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -297,7 +297,7 @@
                         <constraints>
                             <constraint firstItem="fz4-GD-ex1" firstAttribute="top" secondItem="VQm-ah-bgt" secondAttribute="bottom" constant="8" id="XJQ-Yv-pV2"/>
                             <constraint firstItem="VQm-ah-bgt" firstAttribute="centerX" secondItem="Bhh-4O-w4R" secondAttribute="centerX" id="gD4-of-o9C"/>
-                            <constraint firstItem="Nbs-1S-jBL" firstAttribute="centerY" secondItem="Bhh-4O-w4R" secondAttribute="centerY" id="lR4-0P-ZNE"/>
+                            <constraint firstItem="Nbs-1S-jBL" firstAttribute="centerY" secondItem="Bhh-4O-w4R" secondAttribute="centerY" constant="28.5" id="lR4-0P-ZNE"/>
                             <constraint firstItem="Nbs-1S-jBL" firstAttribute="centerX" secondItem="Bhh-4O-w4R" secondAttribute="centerX" id="wP1-jL-ulG"/>
                         </constraints>
                     </view>

@@ -19,7 +19,7 @@
 @implementation CircleChartViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _smallCircleChart = [[AXCircleChart alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.5 - 50, 64, 100, 120)];
+    _smallCircleChart = [[AXCircleChart alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.5 - 50, 104, 100, 100)];
     _smallCircleChart.percents = 0.8;
     _smallCircleChart.formatter = AXCircleChartFormatDollar;
     [self.view addSubview:_smallCircleChart];
@@ -32,7 +32,7 @@
     if (_circleChart.percents >= .8) {
         [_circleChart redrawAnimated:YES completion:NULL];
     } else {
-        [_circleChart updateFromCurrentToPercents:_circleChart.percents+0.1 animated:YES completion:NULL];
+        [_circleChart updateFromCurrentToPercents:_circleChart.percents+0.2 animated:YES completion:NULL];
     }
 }
 @end

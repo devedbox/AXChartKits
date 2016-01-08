@@ -88,26 +88,26 @@ typedef NS_ENUM(NSUInteger, AXCircleChartTouchAction) {
 /// Redraw chart from 0.0 to current value with animation.
 ///
 /// @param animated   a boolean value to show animation.
-/// @param completion a completion call back block.
+/// @param completion completion call back block.
 - (void)redrawAnimated:(BOOL)animated completion:(dispatch_block_t)completion;
 /// Update chart from current value to a new value with animation.
 ///
-/// @param toPercents a new value of percents of chart.
+/// @param toPercents new value of percents of chart.
 /// @param animated   a boolean value to show animation.
-/// @param completion a completion call back block.
+/// @param completion completion call back block.
 - (void)updateFromCurrentToPercents:(CGFloat)toPercents animated:(BOOL)animated completion:(dispatch_block_t)completion;
 /// Update chart from a value to another value with animation.
 ///
-/// @param fromPercents a percent to start with.
-/// @param toPercents   a percent to end with.
+/// @param fromPercents percents to start with.
+/// @param toPercents   percents to end with.
 /// @param animated     a boolean value to show animation.
-/// @param completion   a completion call back block.
+/// @param completion   completion call back block.
 - (void)updateFromPercents:(CGFloat)fromPercents toPercents:(CGFloat)toPercents animated:(BOOL)animated completion:(dispatch_block_t)completion;
 /// Update text value from a value to another value with animation.
 ///
-/// @param fromPercents a percent to start with.
-/// @param toPercents   a percent to end with.
+/// @param fromPercents percents to start with.
+/// @param toPercents   percents to end with.
 /// @param animated     a boolean value to show animation.
-/// @param completion   a completion call back block.
+/// @param completion   completion call back block.
 - (void)updateTextFromPercents:(CGFloat)fromPercents toPercents:(CGFloat)toPercents animated:(BOOL)animated completion:(dispatch_block_t)completion;
 @end

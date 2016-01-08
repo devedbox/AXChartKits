@@ -259,11 +259,11 @@
     }
     anim.timingFunction = timingFunc;
     if (reverse) {
-        anim.property = [POPAnimatableProperty AXCPropertyWithName:kPOPViewAXCStartOffsets];
+        anim.property = [AXChartBase AXCPropertyWithName:kPOPViewAXCStartOffsets];
         anim.fromValue = [NSNumber numberWithFloat:CGRectGetWidth(self.frame)-_endOffsets];
         anim.toValue = [NSNumber numberWithFloat:_startOffsets];
     } else {
-        anim.property = [POPAnimatableProperty AXCPropertyWithName:kPOPViewAXCEndOffsets];
+        anim.property = [AXChartBase AXCPropertyWithName:kPOPViewAXCEndOffsets];
         anim.fromValue = [NSNumber numberWithFloat:CGRectGetWidth(self.frame)-_startOffsets];
         anim.toValue = [NSNumber numberWithFloat:_endOffsets];
     }

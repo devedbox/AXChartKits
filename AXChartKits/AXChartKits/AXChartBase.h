@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "POPAnimatableProperty+AXChart.h"
+#import <pop/pop.h>
+
+@class AXPieChart;
+@class AXLineChart;
+@class AXCircleChart;
+
+extern NSString *const kPOPViewAXCEndOffsets;
+extern NSString *const kPOPViewAXCStartOffsets;
+extern NSString *const kPOPViewAXCPieAngle;
+extern NSString *const kPOPViewAXCCirclePercents;
 
 typedef NS_ENUM(NSInteger, AXLineCap) {
     AXLineCapButt = kCGLineCapButt,
@@ -27,4 +36,6 @@ typedef NS_ENUM(NSInteger, AXLineCap) {
 @property(readonly, nonatomic, getter=isRedrawing) BOOL redrawing;
 ///
 - (void)didTouch:(CGPoint)location;
+///
++ (POPAnimatableProperty *)AXCPropertyWithName:(NSString *)name;
 @end

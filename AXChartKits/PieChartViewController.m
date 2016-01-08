@@ -17,11 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_pieChart addParts:AXPCPCreate(@"hello", [UIColor colorWithRed:77.0 / 255.0 green:216.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.14), AXPCPCreate(@"hehe", [UIColor colorWithRed:77.0 / 255.0 green:196.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.29),AXPCPCreate(@"hehe", [UIColor colorWithRed:77.0 / 255.0 green:176.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.57), nil];
+    [_pieChart addParts:AXPCPCreate(nil, [UIColor colorWithRed:77.0 / 255.0 green:216.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.14),
+                        AXPCPCreate(@"WWDC", [UIColor colorWithRed:77.0 / 255.0 green:196.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.29),
+                        AXPCPCreate(@"GOOG I/O", [UIColor colorWithRed:77.0 / 255.0 green:176.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f], 0.57),
+                        nil];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_pieChart redrawAnimated:YES completion:NULL];
     });
-    _pieChart.angle = M_PI_4;
+    _pieChart.maxAllowedOffsets = 20;
+    _pieChart.hollowRadius = 30;
 }
 
 #pragma mark - Actions

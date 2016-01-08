@@ -320,7 +320,7 @@ static NSString *FormtterStringWithFormat(AXCircleChartFormat format) {
     if(anim == nil)
     {
         anim = [POPBasicAnimation animation];
-        anim.property = [POPAnimatableProperty AXCPropertyWithName:kPOPViewAXCCirclePercents];
+        anim.property = [AXChartBase AXCPropertyWithName:kPOPViewAXCCirclePercents];
         [self pop_addAnimation:anim forKey:kPOPViewAXCPieAngle];
         anim.completionBlock=^(POPAnimation *ani, BOOL finished){
             if (finished) {
