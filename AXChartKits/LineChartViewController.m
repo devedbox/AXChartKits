@@ -7,12 +7,12 @@
 //
 
 #import "LineChartViewController.h"
-#import "AXLineChart.h"
+#import "AXLineChartCell.h"
 
 @interface LineChartViewController ()
-@property(weak, nonatomic) IBOutlet AXLineChart *lineChart;
-@property(weak, nonatomic) IBOutlet AXLineChart *lineChart2;
-@property(weak, nonatomic) IBOutlet AXLineChart *lineChart1;
+@property(weak, nonatomic) IBOutlet AXLineChartCell *lineChart;
+@property(weak, nonatomic) IBOutlet AXLineChartCell *lineChart2;
+@property(weak, nonatomic) IBOutlet AXLineChartCell *lineChart1;
 @end
 
 @implementation LineChartViewController

@@ -6,12 +6,12 @@
 //  Copyright © 2015年 AiXing. All rights reserved.
 //
 
-#import "AXLineChart.h"
+#import "AXLineChartCell.h"
 
-@interface AXLineChart ()
+@interface AXLineChartCell ()
 @end
 
-@implementation AXLineChart
+@implementation AXLineChartCell
 #pragma mark - Life cycle
 - (instancetype)init {
     if (self = [super init]) {

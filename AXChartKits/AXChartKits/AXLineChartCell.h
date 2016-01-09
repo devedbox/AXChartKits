@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, AXLineChartDrawingDirection) {
 ///
 /// Line chart.
 ///
-@interface AXLineChart : AXChartBase
+@interface AXLineChartCell : AXChartBase
 /// Drawing direction.
 @property(assign, nonatomic) AXLineChartDrawingDirection drawingDirection;
 /// Start location percents. Value is between [0, 1].

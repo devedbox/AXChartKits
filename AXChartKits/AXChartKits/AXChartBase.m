@@ -8,7 +8,7 @@
 
 #import "AXChartBase.h"
 #import "AXPieChartView.h"
-#import "AXLineChart.h"
+#import "AXLineChartCell.h"
 #import "AXCircleChartView.h"
 
 static CGFloat const kPOPLayerAXCQuadThreshold = 1.0;
@@ -25,20 +25,20 @@ NSString *const kPOPViewAXCCirclePercents = @"percents";
         props =
         @[
           [POPAnimatableProperty propertyWithName:kPOPViewAXCEndOffsets initializer:^(POPMutableAnimatableProperty *prop) {
-              prop.readBlock = ^(AXLineChart *lineChart, CGFloat values[]) {
+              prop.readBlock = ^(AXLineChartCell *lineChart, CGFloat values[]) {
                   values[0] = lineChart.endOffsets;
               };
-              prop.writeBlock = ^(AXLineChart *lineChart, const CGFloat values[]) {
+              prop.writeBlock = ^(AXLineChartCell *lineChart, const CGFloat values[]) {
                   lineChart.endOffsets = values[0];
                   
               };
               prop.threshold = kPOPLayerAXCQuadThreshold;
           }],
           [POPAnimatableProperty propertyWithName:kPOPViewAXCStartOffsets initializer:^(POPMutableAnimatableProperty *prop) {
-              prop.readBlock = ^(AXLineChart *lineChart, CGFloat values[]) {
+              prop.readBlock = ^(AXLineChartCell *lineChart, CGFloat values[]) {
                   values[0] = lineChart.startOffsets;
               };
-              prop.writeBlock = ^(AXLineChart *lineChart, const CGFloat values[]) {
+              prop.writeBlock = ^(AXLineChartCell *lineChart, const CGFloat values[]) {
                   lineChart.startOffsets = values[0];
                   
               };
