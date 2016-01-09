@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0125A1A81C3383E4001C8F3B /* AXPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A1A71C3383E4001C8F3B /* AXPieChart.m */; };
+		0125A1A81C3383E4001C8F3B /* AXPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A1A71C3383E4001C8F3B /* AXPieChartView.m */; };
 		0125A1AB1C3384E4001C8F3B /* PieChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125A1AA1C3384E4001C8F3B /* PieChartViewController.m */; };
 		01C28A9E1C3127F900FDDB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28A9D1C3127F900FDDB59 /* main.m */; };
 		01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AA01C3127F900FDDB59 /* AppDelegate.m */; };
@@ -17,14 +17,14 @@
 		01C28AAC1C3127F900FDDB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AAA1C3127F900FDDB59 /* LaunchScreen.storyboard */; };
 		01C28AB51C312AD700FDDB59 /* AXChartBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB41C312AD700FDDB59 /* AXChartBase.m */; };
 		01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB81C312B1F00FDDB59 /* AXLineChart.m */; };
-		01D3D4621C3B96B4002AC542 /* AXCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4611C3B96B4002AC542 /* AXCircleChart.m */; };
+		01D3D4621C3B96B4002AC542 /* AXCircleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */; };
 		01D3D4651C3B9FD7002AC542 /* CircleChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */; };
 		479F953A1C56099F87237890 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF2E075A55EF3421FB208CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0125A1A61C3383E4001C8F3B /* AXPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXPieChart.h; path = AXChartKits/AXPieChart.h; sourceTree = "<group>"; };
-		0125A1A71C3383E4001C8F3B /* AXPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXPieChart.m; path = AXChartKits/AXPieChart.m; sourceTree = "<group>"; };
+		0125A1A61C3383E4001C8F3B /* AXPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXPieChartView.h; path = AXChartKits/AXPieChartView.h; sourceTree = "<group>"; };
+		0125A1A71C3383E4001C8F3B /* AXPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXPieChartView.m; path = AXChartKits/AXPieChartView.m; sourceTree = "<group>"; };
 		0125A1A91C3384E4001C8F3B /* PieChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartViewController.h; sourceTree = "<group>"; };
 		0125A1AA1C3384E4001C8F3B /* PieChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartViewController.m; sourceTree = "<group>"; };
 		01C28A991C3127F900FDDB59 /* AXChartKits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXChartKits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,8 +41,8 @@
 		01C28AB41C312AD700FDDB59 /* AXChartBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChartBase.m; path = AXChartKits/AXChartBase.m; sourceTree = "<group>"; };
 		01C28AB71C312B1F00FDDB59 /* AXLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXLineChart.h; path = AXChartKits/AXLineChart.h; sourceTree = "<group>"; };
 		01C28AB81C312B1F00FDDB59 /* AXLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXLineChart.m; path = AXChartKits/AXLineChart.m; sourceTree = "<group>"; };
-		01D3D4601C3B96B4002AC542 /* AXCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXCircleChart.h; path = AXChartKits/AXCircleChart.h; sourceTree = "<group>"; };
-		01D3D4611C3B96B4002AC542 /* AXCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXCircleChart.m; path = AXChartKits/AXCircleChart.m; sourceTree = "<group>"; };
+		01D3D4601C3B96B4002AC542 /* AXCircleChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXCircleChartView.h; path = AXChartKits/AXCircleChartView.h; sourceTree = "<group>"; };
+		01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXCircleChartView.m; path = AXChartKits/AXCircleChartView.m; sourceTree = "<group>"; };
 		01D3D4631C3B9FD7002AC542 /* CircleChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleChartViewController.h; sourceTree = "<group>"; };
 		01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleChartViewController.m; sourceTree = "<group>"; };
 		5CF2E075A55EF3421FB208CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,12 +114,12 @@
 			children = (
 				01C28AB31C312AD700FDDB59 /* AXChartBase.h */,
 				01C28AB41C312AD700FDDB59 /* AXChartBase.m */,
-				0125A1A61C3383E4001C8F3B /* AXPieChart.h */,
-				0125A1A71C3383E4001C8F3B /* AXPieChart.m */,
+				0125A1A61C3383E4001C8F3B /* AXPieChartView.h */,
+				0125A1A71C3383E4001C8F3B /* AXPieChartView.m */,
 				01C28AB71C312B1F00FDDB59 /* AXLineChart.h */,
 				01C28AB81C312B1F00FDDB59 /* AXLineChart.m */,
-				01D3D4601C3B96B4002AC542 /* AXCircleChart.h */,
-				01D3D4611C3B96B4002AC542 /* AXCircleChart.m */,
+				01D3D4601C3B96B4002AC542 /* AXCircleChartView.h */,
+				01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */,
 			);
 			name = AXChartKits;
 			sourceTree = "<group>";
@@ -263,12 +263,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				01C28AA41C3127F900FDDB59 /* LineChartViewController.m in Sources */,
-				01D3D4621C3B96B4002AC542 /* AXCircleChart.m in Sources */,
+				01D3D4621C3B96B4002AC542 /* AXCircleChartView.m in Sources */,
 				01C28AB91C312B1F00FDDB59 /* AXLineChart.m in Sources */,
 				0125A1AB1C3384E4001C8F3B /* PieChartViewController.m in Sources */,
 				01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */,
 				01C28A9E1C3127F900FDDB59 /* main.m in Sources */,
-				0125A1A81C3383E4001C8F3B /* AXPieChart.m in Sources */,
+				0125A1A81C3383E4001C8F3B /* AXPieChartView.m in Sources */,
 				01C28AB51C312AD700FDDB59 /* AXChartBase.m in Sources */,
 				01D3D4651C3B9FD7002AC542 /* CircleChartViewController.m in Sources */,
 			);

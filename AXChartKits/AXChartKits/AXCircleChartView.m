@@ -6,13 +6,13 @@
 //  Copyright © 2016年 AiXing. All rights reserved.
 //
 
-#import "AXCircleChart.h"
+#import "AXCircleChartView.h"
 
 #ifndef kAXDefaultMediaTimingFunction
 #define kAXDefaultMediaTimingFunction [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
 #endif
 
-@interface AXCircleChart ()
+@interface AXCircleChartView ()
 {
     UILabel *_textLabel;
     CGSize _maxLabelSize;
@@ -55,7 +55,7 @@ static NSString *FormtterStringWithFormat(AXCircleChartFormat format) {
     return formatstr;
 }
 
-@implementation AXCircleChart
+@implementation AXCircleChartView
 #pragma mark - Life cycle
 - (instancetype)init {
     if (self = [super init]) {

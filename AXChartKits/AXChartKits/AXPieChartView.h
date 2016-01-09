@@ -9,8 +9,8 @@
 #import "AXChartBase.h"
 /// Class `AXPieChartPart`
 @class AXPieChartPart;
-/// Class `AXPieChart`
-@class AXPieChart;
+/// Class `AXPieChartView`
+@class AXPieChartView;
 ///
 /// AXPieChartDelegate
 ///
@@ -19,15 +19,15 @@
 ///
 /// @param chart a pie chart view.
 /// @param part  touched part.
-- (void)pieChart:(AXPieChart *)chart didTouchPart:(AXPieChartPart *)part;
+- (void)pieChart:(AXPieChartView *)chart didTouchPart:(AXPieChartPart *)part;
 /// Called when pie chart view did touch inside.
 ///
 /// @param chart a pie chart view.
-- (void)pieChartDidTouchInsideParts:(AXPieChart *)chart;
+- (void)pieChartDidTouchInsideParts:(AXPieChartView *)chart;
 /// Called when pie chart view did touch outside.
 ///
 /// @param chart a pie chart view.
-- (void)pieChartDidTouchOutsideParts:(AXPieChart *)chart;
+- (void)pieChartDidTouchOutsideParts:(AXPieChartView *)chart;
 @end
 /// Touch type of pie chart.
 typedef NS_ENUM(NSUInteger, AXPieChartTouchType) {
@@ -38,6 +38,13 @@ typedef NS_ENUM(NSUInteger, AXPieChartTouchType) {
     /// Touch outside.
     AXPieChartTouchOutside
 };
+/// Index enum of pie chart index.
+enum {
+    /// First index.
+    AXPieChartPartFirstIndex = NSIntegerMin,
+    /// Last index.
+    AXPieChartPartLastIndex = NSIntegerMax
+};
 /// Call back block when touch events occure.
 ///
 /// @param touch a type of touch event. See `AXPieChartTouchType` for more.
@@ -46,7 +53,7 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 ///
 /// AXPieChart
 ///
-@interface AXPieChart : AXChartBase
+@interface AXPieChartView : AXChartBase
 /// Delegate.
 @property(assign, nonatomic) id<AXPieChartDelegate>delegate;
 /// Call back block.
@@ -81,11 +88,31 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 @property(assign, nonatomic) CGFloat maxAllowedLabelWidth;
 /// Add parts to the pie chart.
 ///
-/// @discussion Add parts to pie chart by using va_list params.
+/// @discussion Add parts to pie chart by using va_list params. This method will clear the parts before first.
 ///
 /// @param part,... parts to be added.
 ///
 - (void)addParts:(AXPieChartPart *)part,...;
+/// Append a part to current parts of pie chart.
+///
+/// @discussion This method will add the part to current parts. If total percents are more than 1.0, method will
+///             return failure results.
+///
+/// @param part     a pie chart to be appended.
+/// @param animated redraw with animation.
+///
+/// @return Appending results.
+- (BOOL)appendPart:(AXPieChartPart *)part animated:(BOOL)animated;
+/// Remove a part from current parts of pie chart.
+///
+/// @discussion This method will remove a part from current parts at a specific index. If success, method will
+///             return the removed part. If fail, method will return nothing.
+///
+/// @param index    the index of part to be removed.
+/// @param animated redraw with animation.
+///
+/// @return Removing results.
+- (AXPieChartPart *)removePartAtIndex:(NSInteger)index animated:(BOOL)animated;
 /// Redraw pie chart with animation.
 ///
 /// @discussion Redraw chart with animation. When finished, completion call

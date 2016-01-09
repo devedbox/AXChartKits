@@ -7,9 +7,9 @@
 //
 
 #import "AXChartBase.h"
-#import "AXPieChart.h"
+#import "AXPieChartView.h"
 #import "AXLineChart.h"
-#import "AXCircleChart.h"
+#import "AXCircleChartView.h"
 
 static CGFloat const kPOPLayerAXCQuadThreshold = 1.0;
 
@@ -45,19 +45,19 @@ NSString *const kPOPViewAXCCirclePercents = @"percents";
               prop.threshold = kPOPLayerAXCQuadThreshold;
           }],
           [POPAnimatableProperty propertyWithName:kPOPViewAXCPieAngle initializer:^(POPMutableAnimatableProperty *prop) {
-              prop.readBlock = ^(AXPieChart *pieChart, CGFloat values[]) {
+              prop.readBlock = ^(AXPieChartView *pieChart, CGFloat values[]) {
                   values[0] = pieChart.angle;
               };
-              prop.writeBlock = ^(AXPieChart *pieChart, const CGFloat values[]) {
+              prop.writeBlock = ^(AXPieChartView *pieChart, const CGFloat values[]) {
                   pieChart.angle = values[0];
               };
               prop.threshold = kPOPLayerAXCQuadThreshold;
           }],
           [POPAnimatableProperty propertyWithName:kPOPViewAXCCirclePercents initializer:^(POPMutableAnimatableProperty *prop) {
-              prop.readBlock = ^(AXCircleChart *pieChart, CGFloat values[]) {
+              prop.readBlock = ^(AXCircleChartView *pieChart, CGFloat values[]) {
                   values[0] = pieChart.percents;
               };
-              prop.writeBlock = ^(AXCircleChart *pieChart, const CGFloat values[]) {
+              prop.writeBlock = ^(AXCircleChartView *pieChart, const CGFloat values[]) {
                   pieChart.percents = values[0];
               };
               prop.threshold = kPOPLayerAXCQuadThreshold;

@@ -8,7 +8,7 @@
 
 #import "AXChartBase.h"
 
-@class AXCircleChart;
+@class AXCircleChartView;
 ///
 /// AXCircleChartDelegate
 ///
@@ -17,12 +17,12 @@
 /// Did touch a valid area of circle chart.
 ///
 /// @param chart a circle chart.
-- (void)circleChartDidTouch:(AXCircleChart *)chart;
+- (void)circleChartDidTouch:(AXCircleChartView *)chart;
 @end
 /// Call back block of touching on valid area.
 ///
 /// @param chart a circle chart.
-typedef void(^AXCircleChartDidTouchCall)(AXCircleChart *chart);
+typedef void(^AXCircleChartDidTouchCall)(AXCircleChartView *chart);
 /// Circle chart text string format.
 typedef NS_ENUM (NSUInteger, AXCircleChartFormat) {
     /// Normal format.
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, AXCircleChartTouchAction) {
 ///
 /// AXCircleChart
 ///
-@interface AXCircleChart : AXChartBase
+@interface AXCircleChartView : AXChartBase
 /// Fromatter. Defaults is Percent.
 @property(assign, nonatomic) AXCircleChartFormat formatter;
 /// Delegate of circle chart.

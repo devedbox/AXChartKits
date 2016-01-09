@@ -6,14 +6,14 @@
 //  Copyright © 2015年 AiXing. All rights reserved.
 //
 
-#import "AXPieChart.h"
+#import "AXPieChartView.h"
 #import <objc/runtime.h>
 
 #ifndef kAXPieChartSize
 #define kAXPieChartSize (MIN(CGRectGetHeight(self.frame), CGRectGetWidth(self.frame))-_maxAllowedOffsets*2)
 #endif
 
-@interface AXPieChart ()
+@interface AXPieChartView ()
 {
     @private
     /// Parts.
@@ -42,7 +42,7 @@ static char *const kAXPieChartHighLightedLayerKey = "selectionlayer";
 static char *const kAXPieChartSelectionKey = "selection";
 static char *const kAXPieChartTextLabelKey = "label";
 
-@implementation AXPieChart
+@implementation AXPieChartView
 #pragma mark - Initialzier
 - (instancetype)init {
     if (self = [super init]) {
@@ -119,18 +119,13 @@ static char *const kAXPieChartTextLabelKey = "label";
     UIGraphicsPopContext();
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    UIView *suview = [super hitTest:point withEvent:event];
-    return suview;
-}
-
 - (void)didTouch:(CGPoint)location {
     [super didTouch:location];
     
     CGPoint center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2);
     CGFloat distance = sqrtf(powf((location.y - center.y),2) + powf((location.x - center.x),2));
     
-    CGFloat size = MIN(CGRectGetHeight(self.frame), CGRectGetWidth(self.frame))-_maxAllowedOffsets;
+    CGFloat size = kAXPieChartSize;
     
     if (distance <= size/2) {
         if (distance < _hollowRadius) {
@@ -141,10 +136,19 @@ static char *const kAXPieChartTextLabelKey = "label";
         CGFloat percent = [self percentsOfAngleInCenter:center point:location];
         int index = 0;
         while (percent > [self endPercentsForItemAtIndex:index]) {
+            if (index >= _parts.count - 1) {
+                break;
+            }
             index ++;
         }
         
-        [self handleTouchOnPartAtIndex:index];
+        if (percent <= [self endPercentsForItemAtIndex:index]) {
+            if (!_redrawing) {
+                [self handleTouchOnPartAtIndex:index];
+            }
+        } else {
+            [self handleOutsideCircle];
+        }
     } else {
         [self handleOutsideCircle];
     }
@@ -223,6 +227,48 @@ static char *const kAXPieChartTextLabelKey = "label";
     va_end(args);
     NSAssert(percent <= 1.0, @"Percents of total parts should less then 1.0");
     [self setNeedsDisplay];
+}
+
+- (BOOL)appendPart:(AXPieChartPart *)part animated:(BOOL)animated {
+    CGFloat totalPer = .0;
+    [self handleOutsideCircle];
+    for (AXPieChartPart *part in _parts) {
+        totalPer += part.percent;
+        objc_setAssociatedObject(part, kAXPieChartHighLightedLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    if (totalPer + part.percent > 1.0) {
+        return NO;
+    }
+    [_parts addObject:part];
+    [self redrawAnimated:animated completion:NULL];
+    return YES;
+}
+
+- (AXPieChartPart *)removePartAtIndex:(NSInteger)index animated:(BOOL)animated {
+    AXPieChartPart * __block part = nil;
+    if (_parts.count == 0) return part;
+    [self handleOutsideCircle];
+    NSUInteger inx;
+    if (index == AXPieChartPartFirstIndex) {
+        inx = 0;
+    } else if (index == AXPieChartPartLastIndex) {
+        inx = _parts.count - 1;
+    } else if (index <= _parts.count - 1) {
+        inx = index;
+    } else {
+        return part;
+    }
+    [_parts enumerateObjectsUsingBlock:^(AXPieChartPart *prt, NSUInteger idx, BOOL * stop) {
+        if (idx == inx) {
+            part = prt;
+            [prt.textLabel removeFromSuperview];
+            objc_setAssociatedObject(prt, kAXPieChartTextLabelKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
+        objc_setAssociatedObject(prt, kAXPieChartHighLightedLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }];
+    [_parts removeObjectAtIndex:inx];
+    [self redrawAnimated:animated completion:NULL];
+    return part;
 }
 
 - (void)redrawAnimated:(BOOL)animated completion:(dispatch_block_t)completion {

@@ -7,19 +7,19 @@
 //
 
 #import "CircleChartViewController.h"
-#import "AXCircleChart.h"
+#import "AXCircleChartView.h"
 
 @interface CircleChartViewController ()
 /// Circle chart.
-@property(weak, nonatomic) IBOutlet AXCircleChart *circleChart;
+@property(weak, nonatomic) IBOutlet AXCircleChartView *circleChart;
 /// Circle chart small.
-@property(strong, nonatomic) AXCircleChart *smallCircleChart;
+@property(strong, nonatomic) AXCircleChartView *smallCircleChart;
 @end
 
 @implementation CircleChartViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _smallCircleChart = [[AXCircleChart alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.5 - 50, 104, 100, 100)];
+    _smallCircleChart = [[AXCircleChartView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*.5 - 50, 104, 100, 100)];
     _smallCircleChart.percents = 0.8;
     _smallCircleChart.formatter = AXCircleChartFormatDollar;
     [self.view addSubview:_smallCircleChart];
