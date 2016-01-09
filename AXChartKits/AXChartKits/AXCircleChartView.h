@@ -7,7 +7,7 @@
 //
 
 #import "AXChartBase.h"
-
+/// Class `AXCircleChartView`.
 @class AXCircleChartView;
 ///
 /// AXCircleChartDelegate

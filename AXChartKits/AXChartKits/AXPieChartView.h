@@ -7,9 +7,9 @@
 //
 
 #import "AXChartBase.h"
-/// Class `AXPieChartPart`
+/// Class `AXPieChartPart`.
 @class AXPieChartPart;
-/// Class `AXPieChartView`
+/// Class `AXPieChartView`.
 @class AXPieChartView;
 ///
 /// AXPieChartDelegate
@@ -60,6 +60,8 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 @property(copy, nonatomic) AXPieChartDidTouchCall touchCall;
 /// Parts of pie chart.
 @property(copy, readonly, nonatomic) NSArray *parts;
+/// Total precents.
+@property(readonly, nonatomic) NSNumber *totalValue;
 /// Angle. Default is M_PI*2.
 @property(assign, nonatomic) CGFloat angle;
 /// Angle offsets. Defaults is -M_PI_2.
@@ -86,6 +88,7 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 @property(strong, nonatomic) UIColor *textColor;
 /// Max text allowed width.
 @property(assign, nonatomic) CGFloat maxAllowedLabelWidth;
+///
 /// Add parts to the pie chart.
 ///
 /// @discussion Add parts to pie chart by using va_list params. This method will clear the parts before first.
@@ -93,6 +96,7 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 /// @param part,... parts to be added.
 ///
 - (void)addParts:(AXPieChartPart *)part,...;
+///
 /// Append a part to current parts of pie chart.
 ///
 /// @discussion This method will add the part to current parts. If total percents are more than 1.0, method will
@@ -102,17 +106,36 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 /// @param animated redraw with animation.
 ///
 /// @return Appending results.
-- (BOOL)appendPart:(AXPieChartPart *)part animated:(BOOL)animated;
+///
+- (void)appendPart:(AXPieChartPart *)part animated:(BOOL)animated;
+///
 /// Remove a part from current parts of pie chart.
 ///
-/// @discussion This method will remove a part from current parts at a specific index. If success, method will
-///             return the removed part. If fail, method will return nothing.
+/// @discussion This method will remove a part from current parts at a specific index.
 ///
 /// @param index    the index of part to be removed.
 /// @param animated redraw with animation.
 ///
 /// @return Removing results.
+///
 - (AXPieChartPart *)removePartAtIndex:(NSInteger)index animated:(BOOL)animated;
+///
+/// Replace a part at a specfic index with another part.
+///
+/// @param index the index of part to be replaced.
+/// @param part  the replcing part.
+/// @param animated redraw with animation.
+///
+- (void)replacePartAtIndex:(NSInteger)index withPart:(AXPieChartPart *)part animated:(BOOL)animated;
+///
+/// Insert a new part at a specfic index.
+///
+/// @param part a new part.
+/// @param index the index to be inserted.
+/// @param animated redraw with animation.
+///
+- (void)insertPart:(AXPieChartPart *)part atIndex:(NSInteger)index animated:(BOOL)animated;
+///
 /// Redraw pie chart with animation.
 ///
 /// @discussion Redraw chart with animation. When finished, completion call
@@ -120,16 +143,19 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 ///
 /// @param animated   a boolean value to show animation.
 /// @param completion a completion block.
+///
 - (void)redrawAnimated:(BOOL)animated completion:(dispatch_block_t)completion;
 @end
+///
 /// Create a new part of pie chart.
 ///
 /// @param content content description of part.
 /// @param color   color of part arc.
-/// @param percent percent of part.
+/// @param value   value of part.
 ///
 /// @return a new part.
-extern AXPieChartPart * AXPCPCreate(NSString *content, UIColor *color, CGFloat percent);
+///
+extern AXPieChartPart * AXPCPCreate(NSString *content, UIColor *color, NSNumber *value);
 ///
 /// AXPieChartPart
 ///
@@ -138,12 +164,15 @@ extern AXPieChartPart * AXPCPCreate(NSString *content, UIColor *color, CGFloat p
 @property(copy, nonatomic) NSString *content;
 /// Drawing color.
 @property(strong, nonatomic) UIColor *color;
-/// Angle percent
-@property(assign, nonatomic) CGFloat percent;
+/// Part value.
+@property(strong, nonatomic) NSNumber *value;
+/// Angle percent.
+@property(readonly, nonatomic) CGFloat percent;
 /// Highlight layer.
 @property(readonly, nonatomic) CAShapeLayer *hightlightLayer;
 /// Text label.
 @property(readonly, nonatomic) UILabel *textLabel;
+///
 /// Create a new part of pie chart with content and color and percent.
 ///
 /// @param content content description of part.
@@ -151,5 +180,6 @@ extern AXPieChartPart * AXPCPCreate(NSString *content, UIColor *color, CGFloat p
 /// @param percent percent of part.
 ///
 /// @return a new part.
-+ (instancetype)partWithContent:(NSString *)content color:(UIColor *)color percent:(CGFloat)percent;
+///
++ (instancetype)partWithContent:(NSString *)content color:(UIColor *)color value:(NSNumber *)value;
 @end

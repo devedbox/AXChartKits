@@ -99,15 +99,15 @@
             
             CGContextSetLineWidth(context, 2.0);
             if (_shouldShowDashAtStart && !_redrawing) {
-                CGContextMoveToPoint(context, startPoint.x, startPoint.y);
+                CGContextMoveToPoint(context, 0, startPoint.y+_endOffsets * (CGRectGetHeight(drawbox)*(endLocation-startLocation)/CGRectGetWidth(drawbox)));
                 CGFloat length[] = {_lineWidth/2, _lineWidth*2};
                 CGContextSetLineDash(context, _lineWidth/2, length, 2);
-                CGContextAddLineToPoint(context, startPoint.x, CGRectGetHeight(drawbox));
+                CGContextAddLineToPoint(context, 0, CGRectGetHeight(drawbox));
                 CGContextStrokePath(context);
             }
             
             if (_shouldShowDashAtEnd && !_redrawing) {
-                CGContextMoveToPoint(context, CGRectGetWidth(drawbox), endPoint.y+_endOffsets * (CGRectGetHeight(drawbox)*(endLocation-startLocation)/CGRectGetWidth(drawbox)));
+                CGContextMoveToPoint(context, CGRectGetWidth(drawbox), endPoint.y+_endOffsets * (CGRectGetHeight(drawbox)*(startLocation)/CGRectGetWidth(drawbox)));
                 CGFloat length[] = {_lineWidth/2, _lineWidth*2};
                 CGContextSetLineDash(context, _lineWidth/2, length, 2);
                 CGContextAddLineToPoint(context, CGRectGetWidth(drawbox), CGRectGetHeight(drawbox));

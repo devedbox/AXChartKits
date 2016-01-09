@@ -20,23 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _lineChart1.startLocation = 1;
+    _lineChart1.startLocation = 0.8;
     _lineChart1.endLocation = 0.2;
-    _lineChart1.lineWidth = 3.0;
+    _lineChart1.lineWidth = 2.0;
     _lineChart1.isBeginning = YES;
     _lineChart1.shouldShowDashAtStart = YES;
     _lineChart1.shouldShowDashAtEnd = YES;
+    _lineChart1.tintColor = [UIColor colorWithRed:0.0 / 255.0 green:171.0 / 255.0 blue:243.0 / 255.0 alpha:1.0];
     _lineChart.startLocation = 0.2;
-    _lineChart.endLocation = 1;
-    _lineChart.lineWidth = 3.0;
+    _lineChart.endLocation = 0.8;
+    _lineChart.lineWidth = 2.0;
+    _lineChart.tintColor = [UIColor colorWithRed:0.0 / 255.0 green:171.0 / 255.0 blue:243.0 / 255.0 alpha:1.0];
+    _lineChart.shouldShowDashAtEnd = YES;
 //    _lineChart.shouldShowDashAtStart = YES;
 //    _lineChart.startOffsets = 20;
 //    _lineChart.endOffsets = 20;
 //    _lineChart.drawingDirection = AXLineChartDrawingVertical;
-    _lineChart2.startLocation = 1;
+    _lineChart2.startLocation = 0.8;
     _lineChart2.endLocation = 0.3;
-    _lineChart2.lineWidth = 3.0;
+    _lineChart2.lineWidth = 2.0;
     _lineChart2.isEnding = YES;
+    _lineChart2.tintColor = [UIColor colorWithRed:0.0 / 255.0 green:171.0 / 255.0 blue:243.0 / 255.0 alpha:1.0];
     _lineChart2.shouldShowDashAtEnd = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_lineChart1 redrawAnimated:YES reverse:NO duration:0.5 curve:UIViewAnimationCurveLinear completion:^{
