@@ -40,14 +40,18 @@ typedef NS_ENUM(NSInteger, AXLineCap) {
 @property(assign, nonatomic, getter=isVisible) BOOL visible;
 /// Redrawing.
 @property(readonly, nonatomic, getter=isRedrawing) BOOL redrawing;
+///
 /// Called when touch event occured.
 ///
 /// @param location point of touch location.
+///
 - (void)didTouch:(CGPoint)location;
+///
 /// Get animatable property with property key.
 ///
 /// @param name a animatable property key.
 ///
 /// @return A animatable property.
+///
 + (POPAnimatableProperty *)AXCPropertyWithName:(NSString *)name;
 @end

@@ -66,6 +66,8 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 @property(assign, nonatomic) CGFloat angle;
 /// Angle offsets. Defaults is -M_PI_2.
 @property(assign, nonatomic) CGFloat angleOffsets;
+/// Parts seperator offsets. Default is 12.0.
+@property(assign, nonatomic) CGFloat seperatorOffsets;
 /// Constant value of hollow part. Default is 20.
 @property(assign, nonatomic) CGFloat hollowRadius;
 /// Max allowed offsets. Default is 10.
@@ -169,7 +171,7 @@ extern AXPieChartPart * AXPCPCreate(NSString *content, UIColor *color, NSNumber 
 /// Angle percent.
 @property(readonly, nonatomic) CGFloat percent;
 /// Highlight layer.
-@property(readonly, nonatomic) CAShapeLayer *hightlightLayer;
+@property(readonly, nonatomic) CALayer *hightlightLayer;
 /// Text label.
 @property(readonly, nonatomic) UILabel *textLabel;
 ///

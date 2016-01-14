@@ -112,7 +112,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Svi-vJ-aHJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="NXd-ac-eke">
                                 <cells>
@@ -127,14 +127,14 @@
                                                     <rect key="frame" x="15" y="6" width="73" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="shows line style chart view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ScJ-M4-YJW">
                                                     <rect key="frame" x="15" y="25.5" width="140.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -154,14 +154,14 @@
                                                     <rect key="frame" x="15" y="6" width="65" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="shows pie style chart view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qgS-bB-wJx">
                                                     <rect key="frame" x="15" y="25.5" width="138" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -181,14 +181,14 @@
                                                     <rect key="frame" x="15" y="6" width="84" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="shows circle style chart view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tjd-U7-Dm5">
                                                     <rect key="frame" x="15" y="25.5" width="151" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -273,12 +273,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nbs-1S-jBL" customClass="AXPieChartView">
-                                <rect key="frame" x="180" y="180" width="240" height="297"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="405"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Bmb-1Z-z6G"/>
-                                    <constraint firstAttribute="height" constant="297" id="Xld-R7-5T0"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                                         <color key="value" white="0.0" alpha="0.10239762931034482" colorSpace="calibratedWhite"/>
@@ -295,9 +291,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nbs-1S-jBL" firstAttribute="leading" secondItem="Bhh-4O-w4R" secondAttribute="leading" id="QFd-do-vEE"/>
                             <constraint firstItem="fz4-GD-ex1" firstAttribute="top" secondItem="VQm-ah-bgt" secondAttribute="bottom" constant="8" id="XJQ-Yv-pV2"/>
+                            <constraint firstAttribute="trailing" secondItem="Nbs-1S-jBL" secondAttribute="trailing" id="bqv-mS-VO4"/>
+                            <constraint firstItem="Nbs-1S-jBL" firstAttribute="top" secondItem="hQO-ZD-NqK" secondAttribute="bottom" constant="8" id="fdQ-GJ-yh4"/>
                             <constraint firstItem="VQm-ah-bgt" firstAttribute="centerX" secondItem="Bhh-4O-w4R" secondAttribute="centerX" id="gD4-of-o9C"/>
-                            <constraint firstItem="Nbs-1S-jBL" firstAttribute="centerY" secondItem="Bhh-4O-w4R" secondAttribute="centerY" constant="28.5" id="lR4-0P-ZNE"/>
+                            <constraint firstItem="VQm-ah-bgt" firstAttribute="top" secondItem="Nbs-1S-jBL" secondAttribute="bottom" constant="85" id="qfT-HO-2TX"/>
                             <constraint firstItem="Nbs-1S-jBL" firstAttribute="centerX" secondItem="Bhh-4O-w4R" secondAttribute="centerX" id="wP1-jL-ulG"/>
                         </constraints>
                     </view>
