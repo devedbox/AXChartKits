@@ -5,6 +5,23 @@
 //  Created by ai on 15/12/30.
 //  Copyright © 2015年 AiXing. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 #import "AXChartBase.h"
 /// Class `AXPieChartPart`.
@@ -53,9 +70,9 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 ///
 /// AXPieChart
 ///
-@interface AXPieChartView : AXChartBase
+IB_DESIGNABLE @interface AXPieChartView : AXChartBase
 /// Delegate.
-@property(assign, nonatomic) id<AXPieChartDelegate>delegate;
+@property(assign, nonatomic) IBOutlet id<AXPieChartDelegate>delegate;
 /// Call back block.
 @property(copy, nonatomic) AXPieChartDidTouchCall touchCall;
 /// Parts of pie chart.
@@ -63,33 +80,33 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 /// Total precents.
 @property(readonly, nonatomic) NSNumber *totalValue;
 /// Angle. Default is M_PI*2.
-@property(assign, nonatomic) CGFloat angle;
+@property(assign, nonatomic) IBInspectable CGFloat angle;
 /// Angle offsets. Defaults is -M_PI_2.
-@property(assign, nonatomic) CGFloat angleOffsets;
-/// Parts seperator offsets. Default is 12.0.
-@property(assign, nonatomic) CGFloat seperatorOffsets;
+@property(assign, nonatomic) IBInspectable CGFloat angleOffsets;
+/// Parts seperator offsets. Default is 6.0.
+@property(assign, nonatomic) IBInspectable CGFloat seperatorOffsets;
 /// Constant value of hollow part. Default is 20.
-@property(assign, nonatomic) CGFloat hollowRadius;
+@property(assign, nonatomic) IBInspectable CGFloat hollowRadius;
 /// Max allowed offsets. Default is 10.
-@property(assign, nonatomic) CGFloat maxAllowedOffsets;
+@property(assign, nonatomic) IBInspectable CGFloat maxAllowedOffsets;
 /// Should selected on touch. Defaults is YES.
-@property(assign, nonatomic) BOOL shouldSelection;
+@property(assign, nonatomic) IBInspectable BOOL shouldSelection;
 /// Should allow to select multiple parts. Defaults is NO.
-@property(assign, nonatomic) BOOL allowsMultipleSelection;
+@property(assign, nonatomic) IBInspectable BOOL allowsMultipleSelection;
 /// Should show absolute values. Defaults is NO.
-@property(assign, nonatomic) BOOL showsAbsoluteValues;
+@property(assign, nonatomic) IBInspectable BOOL showsAbsoluteValues;
 /// Should hide values. Defaults is NO.
-@property(assign, nonatomic) BOOL hidesValues;
+@property(assign, nonatomic) IBInspectable BOOL hidesValues;
 /// Should show only values. Default is NO.
-@property(assign, nonatomic) BOOL showsOnlyValues;
+@property(assign, nonatomic) IBInspectable BOOL showsOnlyValues;
 /// Percents limits of label. Defaults is 0.05.
-@property(assign, nonatomic) CGFloat percentsLimitsOfLabel;
+@property(assign, nonatomic) IBInspectable CGFloat percentsLimitsOfLabel;
 /// Text font.
 @property(strong, nonatomic) UIFont *textFont;
 /// Text color.
-@property(strong, nonatomic) UIColor *textColor;
+@property(strong, nonatomic) IBInspectable UIColor *textColor;
 /// Max text allowed width.
-@property(assign, nonatomic) CGFloat maxAllowedLabelWidth;
+@property(assign, nonatomic) IBInspectable CGFloat maxAllowedLabelWidth;
 ///
 /// Add parts to the pie chart.
 ///

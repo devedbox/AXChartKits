@@ -5,6 +5,23 @@
 //  Created by ai on 16/1/5.
 //  Copyright © 2016年 AiXing. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 #import "AXChartBase.h"
 /// Class `AXCircleChartView`.
@@ -50,41 +67,41 @@ typedef NS_ENUM(NSUInteger, AXCircleChartTouchAction) {
 ///
 /// AXCircleChart
 ///
-@interface AXCircleChartView : AXChartBase
+IB_DESIGNABLE @interface AXCircleChartView : AXChartBase
 /// Fromatter. Defaults is Percent.
 @property(assign, nonatomic) AXCircleChartFormat formatter;
 /// Delegate of circle chart.
-@property(assign, nonatomic) id<AXCircleChartDelegate>delegate;
+@property(assign, nonatomic) IBOutlet id<AXCircleChartDelegate>delegate;
 /// Call back block on touch.
 @property(copy, nonatomic)   AXCircleChartDidTouchCall touchCall;
 /// Should show text label. Defaults is YES.
-@property(assign, nonatomic) BOOL      showsLabel;
+@property(assign, nonatomic) IBInspectable BOOL      showsLabel;
 /// Should fill the path. Defaults is YES.
-@property(assign, nonatomic) BOOL      fillsPath;
+@property(assign, nonatomic) IBInspectable BOOL      fillsPath;
 /// Should switch filling on touch. Defaults is YES.
 @property(assign, nonatomic) BOOL      switchsFillingOnTouch __deprecated_msg("using `touchAction` instead.");
 /// Action value on touch. Defaults is SwitchFilling.
 @property(assign, nonatomic) AXCircleChartTouchAction touchAction;
 /// Angle offsets. Defaults is -M_PI_2.
-@property(assign, nonatomic) CGFloat   angleOffsets;
+@property(assign, nonatomic) IBInspectable CGFloat   angleOffsets;
 /// Percents. Value between [0, 1].
-@property(assign, nonatomic) CGFloat   percents;
+@property(assign, nonatomic) IBInspectable CGFloat   percents;
 /// Line width. Defaults is 12.0 pt.
-@property(assign, nonatomic) CGFloat   lineWidth;
+@property(assign, nonatomic) IBInspectable CGFloat   lineWidth;
 /// Line cap. Defaults is round.
-@property(assign, nonatomic) AXLineCap lineCap;
+@property(assign, nonatomic) IBInspectable AXLineCap lineCap;
 /// Stroke color. Defaults is orange color.
-@property(strong, nonatomic) UIColor   *strokeColor;
+@property(strong, nonatomic) IBInspectable UIColor   *strokeColor;
 /// Stroke end color. Defaults is red color.
-@property(strong, nonatomic) UIColor   *strokeEndColor;
+@property(strong, nonatomic) IBInspectable UIColor   *strokeEndColor;
 /// Text color. Defaults is orange color.
-@property(nonatomic) UIColor *textColor;
+@property(nonatomic) IBInspectable UIColor *textColor;
 /// Text font. Defaults is bold 16 of system.
 @property(nonatomic) UIFont  *textFont;
 /// Fill color.
-@property(strong, nonatomic) UIColor *fillColor;
+@property(strong, nonatomic) IBInspectable UIColor *fillColor;
 /// Duration of shows animation.
-@property(assign, nonatomic) NSTimeInterval duration;
+@property(assign, nonatomic) IBInspectable NSTimeInterval duration;
 /// Redraw chart from 0.0 to current value with animation.
 ///
 /// @param animated   a boolean value to show animation.

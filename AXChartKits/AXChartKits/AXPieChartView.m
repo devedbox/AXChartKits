@@ -5,6 +5,23 @@
 //  Created by ai on 15/12/30.
 //  Copyright © 2015年 AiXing. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 #import "AXPieChartView.h"
 #import <objc/runtime.h>
@@ -114,7 +131,7 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     _textFont = [UIFont systemFontOfSize:12];
     _textColor = [UIColor whiteColor];
     _maxAllowedLabelWidth = 100;
-    _seperatorOffsets = 12;
+    _seperatorOffsets = 6;
 }
 
 - (void)dealloc {
@@ -469,36 +486,39 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
                 }
             }
         }
+        
         /*
-        CGFloat centerPercent = (index == 0 ? [self endPercentsForItemAtIndex:index] : ([self endPercentsForItemAtIndex:index-1] + [self endPercentsForItemAtIndex:index]))/ 2;
-        CGFloat percentOffset = fabs(.5-centerPercent);
-        POPSpringAnimation *anim = [self pop_animationForKey:@"rotate"];
-        if (!anim) {
-            anim = [POPSpringAnimation animation];
-            anim.property = [POPAnimatableProperty propertyWithName:@"rotate" initializer:^(POPMutableAnimatableProperty *prop) {
-                // read value
-                prop.readBlock = ^(AXPieChartView *chart, CGFloat values[]) {
-                    values[0] = chart.angleOffsets;
-                };
-                // write value
-                prop.writeBlock = ^(AXPieChartView *chart, const CGFloat values[]) {
-                    chart.angleOffsets = values[0];
-                };
-                // dynamics threshold
-                prop.threshold = 1.0;
-            }];
-            anim.completionBlock = ^(POPAnimation *ani, BOOL finished){
-                if (finished) {
-                    [self selectIndex:index animated:YES opacity:NO];
-                }
-            };
-        }
-        anim.toValue = @(-M_PI_2+percentOffset*2*M_PI);
-        [self pop_addAnimation:anim forKey:@"rotate"];
-        for (NSUInteger i = 0; i < _parts.count; i++) {
-            [self updateDescriptionLabel:objc_getAssociatedObject(_parts[i], kAXPieChartTextLabelKey) atIndex:i animated:YES];
-        }
+         CGFloat centerPercent = (index == 0 ? [self endPercentsForItemAtIndex:index] : ([self endPercentsForItemAtIndex:index-1] + [self endPercentsForItemAtIndex:index]))/ 2;
+         CGFloat percentOffset = fabs(.5-centerPercent);
+         POPBasicAnimation *anim = [self pop_animationForKey:@"rotate"];
+         if (!anim) {
+         anim = [POPBasicAnimation animation];
+         anim.property = [POPAnimatableProperty propertyWithName:@"rotate" initializer:^(POPMutableAnimatableProperty *prop) {
+         // read value
+         prop.readBlock = ^(AXPieChartView *chart, CGFloat values[]) {
+         values[0] = chart.angleOffsets;
+         };
+         // write value
+         prop.writeBlock = ^(AXPieChartView *chart, const CGFloat values[]) {
+         chart.angleOffsets = values[0];
+         };
+         // dynamics threshold
+         prop.threshold = 1.0;
+         }];
+         anim.completionBlock = ^(POPAnimation *ani, BOOL finished){
+         if (finished) {
+         [self selectIndex:index animated:YES opacity:NO];
+         }
+         };
+         }
+         anim.duration = 0.8;
+         anim.toValue = @(-M_PI_2+percentOffset*2*M_PI);
+         [self pop_addAnimation:anim forKey:@"rotate"];
+         for (NSUInteger i = 0; i < _parts.count; i++) {
+         [self updateDescriptionLabel:objc_getAssociatedObject(_parts[i], kAXPieChartTextLabelKey) atIndex:i animated:YES];
+         }
          */
+        
         [self selectIndex:index animated:YES opacity:NO];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(pieChart:didTouchPart:)]) {
