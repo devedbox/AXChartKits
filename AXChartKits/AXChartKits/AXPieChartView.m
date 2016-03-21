@@ -889,10 +889,10 @@ static BOOL SeperatorResultEaqulToResult(SeperatorResult result, SeperatorResult
                 register CGFloat d = distance;
                 
                 register CGFloat(^_b)(CGFloat d) = ^(CGFloat d) {
-                    return (2*B*center.x)/A + (2*B*C)/pow(A, 2) - (2*B*d*sqrt(pow(A, 2)+pow(B, 2)))/pow(A, 2) - 2*center.y;
+                    return (CGFloat)(2*B*center.x)/A + (2*B*C)/pow(A, 2) - (2*B*d*sqrt(pow(A, 2)+pow(B, 2)))/pow(A, 2) - 2*center.y;
                 };
                 register CGFloat(^_c)(CGFloat d) = ^(CGFloat d) {
-                    return pow(center.x, 2) - (2*center.x*(d*sqrt(pow(A, 2)+pow(B, 2))-C))/A + (pow(d, 2)*(pow(A, 2)+pow(B, 2))+pow(C, 2)-2*C*d*sqrt(pow(A, 2)+pow(B, 2)))/pow(A, 2) + pow(center.y, 2) - pow(radius, 2);
+                    return (CGFloat)pow(center.x, 2) - (2*center.x*(d*sqrt(pow(A, 2)+pow(B, 2))-C))/A + (pow(d, 2)*(pow(A, 2)+pow(B, 2))+pow(C, 2)-2*C*d*sqrt(pow(A, 2)+pow(B, 2)))/pow(A, 2) + pow(center.y, 2) - pow(radius, 2);
                 };
                 
                 register CGFloat a = pow(B, 2)/pow(A, 2) + 1;
