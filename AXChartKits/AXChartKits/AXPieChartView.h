@@ -70,7 +70,7 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 ///
 /// AXPieChart
 ///
-IB_DESIGNABLE @interface AXPieChartView : AXChartBase
+@interface AXPieChartView : AXChartBase
 /// Delegate.
 @property(assign, nonatomic) IBOutlet id<AXPieChartDelegate>delegate;
 /// Call back block.
@@ -80,15 +80,15 @@ IB_DESIGNABLE @interface AXPieChartView : AXChartBase
 /// Total precents.
 @property(readonly, nonatomic) NSNumber *totalValue;
 /// Angle. Default is M_PI*2.
-@property(assign, nonatomic) IBInspectable CGFloat angle;
+@property(assign, nonatomic) CGFloat angle;
 /// Angle offsets. Defaults is -M_PI_2.
-@property(assign, nonatomic) IBInspectable CGFloat angleOffsets;
+@property(assign, nonatomic) CGFloat angleOffsets;
 /// Parts seperator offsets. Default is 6.0.
-@property(assign, nonatomic) IBInspectable CGFloat seperatorOffsets;
+@property(assign, nonatomic) CGFloat seperatorOffsets;
 /// Constant value of hollow part. Default is 20.
-@property(assign, nonatomic) IBInspectable CGFloat hollowRadius;
+@property(assign, nonatomic) CGFloat hollowRadius;
 /// Max allowed offsets. Default is 10.
-@property(assign, nonatomic) IBInspectable CGFloat maxAllowedOffsets;
+@property(assign, nonatomic) CGFloat maxAllowedOffsets;
 /// Should selected on touch. Defaults is YES.
 @property(assign, nonatomic) IBInspectable BOOL shouldSelection;
 /// Should allow to select multiple parts. Defaults is NO.
@@ -100,13 +100,13 @@ IB_DESIGNABLE @interface AXPieChartView : AXChartBase
 /// Should show only values. Default is NO.
 @property(assign, nonatomic) IBInspectable BOOL showsOnlyValues;
 /// Percents limits of label. Defaults is 0.05.
-@property(assign, nonatomic) IBInspectable CGFloat percentsLimitsOfLabel;
+@property(assign, nonatomic) CGFloat percentsLimitsOfLabel;
 /// Text font.
 @property(strong, nonatomic) UIFont *textFont;
 /// Text color.
 @property(strong, nonatomic) IBInspectable UIColor *textColor;
 /// Max text allowed width.
-@property(assign, nonatomic) IBInspectable CGFloat maxAllowedLabelWidth;
+@property(assign, nonatomic) CGFloat maxAllowedLabelWidth;
 ///
 /// Add parts to the pie chart.
 ///

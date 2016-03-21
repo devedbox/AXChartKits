@@ -67,7 +67,7 @@ typedef NS_ENUM(NSUInteger, AXCircleChartTouchAction) {
 ///
 /// AXCircleChart
 ///
-IB_DESIGNABLE @interface AXCircleChartView : AXChartBase
+@interface AXCircleChartView : AXChartBase
 /// Fromatter. Defaults is Percent.
 @property(assign, nonatomic) AXCircleChartFormat formatter;
 /// Delegate of circle chart.
@@ -83,13 +83,13 @@ IB_DESIGNABLE @interface AXCircleChartView : AXChartBase
 /// Action value on touch. Defaults is SwitchFilling.
 @property(assign, nonatomic) AXCircleChartTouchAction touchAction;
 /// Angle offsets. Defaults is -M_PI_2.
-@property(assign, nonatomic) IBInspectable CGFloat   angleOffsets;
+@property(assign, nonatomic) CGFloat   angleOffsets;
 /// Percents. Value between [0, 1].
-@property(assign, nonatomic) IBInspectable CGFloat   percents;
+@property(assign, nonatomic) CGFloat   percents;
 /// Line width. Defaults is 12.0 pt.
-@property(assign, nonatomic) IBInspectable CGFloat   lineWidth;
+@property(assign, nonatomic) CGFloat   lineWidth;
 /// Line cap. Defaults is round.
-@property(assign, nonatomic) IBInspectable AXLineCap lineCap;
+@property(assign, nonatomic) AXLineCap lineCap;
 /// Stroke color. Defaults is orange color.
 @property(strong, nonatomic) IBInspectable UIColor   *strokeColor;
 /// Stroke end color. Defaults is red color.
@@ -101,7 +101,7 @@ IB_DESIGNABLE @interface AXCircleChartView : AXChartBase
 /// Fill color.
 @property(strong, nonatomic) IBInspectable UIColor *fillColor;
 /// Duration of shows animation.
-@property(assign, nonatomic) IBInspectable NSTimeInterval duration;
+@property(assign, nonatomic) NSTimeInterval duration;
 /// Redraw chart from 0.0 to current value with animation.
 ///
 /// @param animated   a boolean value to show animation.
