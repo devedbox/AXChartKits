@@ -870,7 +870,7 @@ static BOOL SeperatorResultEaqulToResult(SeperatorResult result, SeperatorResult
                 SeperatorResult result = {{centerOffset.x+x1,centerOffset.y-y1},{centerOffset.x+x1,centerOffset.y-y2},{centerOffset.x+x2,centerOffset.y-y1},{centerOffset.x+x2,centerOffset.y-y2}};
                 
                 return result;
-            } else if (ceilf(point1.y) == ceilf(point2.y)) {
+            } else if (ceil(point1.y) == ceil(point2.y)) {
                 register CGFloat d = distance;
                 
                 register CGFloat y1 = point1.y + d;
@@ -1069,8 +1069,8 @@ static BOOL SeperatorResultEaqulToResult(SeperatorResult result, SeperatorResult
 }
 
 - (CGPoint)circleCoordinateWithCenter:(CGPoint)center angle:(CGFloat)angle radius:(CGFloat)radius{
-    CGFloat x2 = radius*cosf(-angle);
-    CGFloat y2 = radius*sinf(-angle);
+    CGFloat x2 = radius*cos(-angle);
+    CGFloat y2 = radius*sin(-angle);
     return CGPointMake(center.x+x2, center.y-y2);
 }
 
