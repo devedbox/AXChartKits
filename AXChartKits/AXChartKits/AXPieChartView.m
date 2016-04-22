@@ -593,12 +593,10 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
                     AXPieChartPart *part = _parts[i];
                     BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
                     if (selection) {
-                        [self selectIndex:i animated:YES opacity:NO shouldSelectTitle:YES];
+                        [self selectIndex:i animated:YES opacity:NO shouldSelectTitle:NO];
                     }
                 }
             }
-        } else {
-            
         }
         
         /*
