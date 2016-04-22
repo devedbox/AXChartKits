@@ -107,6 +107,21 @@ typedef void(^AXPieChartDidTouchCall)(AXPieChartTouchType touch, AXPieChartPart*
 @property(strong, nonatomic) IBInspectable UIColor *textColor;
 /// Max text allowed width.
 @property(assign, nonatomic) CGFloat maxAllowedLabelWidth;
+/*
+/// Title label configuration.
+ */
+/// Title.
+@property(strong, nonatomic) NSString *title;
+/// Title font. Defaults is bold system 15.
+@property(strong, nonatomic) UIFont *titleFont UI_APPEARANCE_SELECTOR;
+/// Title text color. Defaults is black.
+@property(strong, nonatomic) UIColor *titleColor UI_APPEARANCE_SELECTOR;
+/// Title using selection color. Defaults is YES.
+@property(assign, nonatomic) IBInspectable BOOL titleUsingSelectionColor;
+/// Title following selection parts. Defaults is YES.
+@property(assign, nonatomic) IBInspectable BOOL titleFollowingSelectionPart;
+/// Should shows title. Defaults is YES.
+@property(assign, nonatomic) IBInspectable BOOL showsTitle;
 ///
 /// Add parts to the pie chart.
 ///

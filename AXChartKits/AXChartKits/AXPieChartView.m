@@ -37,7 +37,11 @@
     NSMutableArray *_parts;
     /// Animated label.
     BOOL _animateLabel;
+    /// Needs update labels.
+    BOOL _needsUpdateLabel;
 }
+/// Title label.
+@property(strong, nonatomic) UILabel *titleLabel;
 @end
 
 @interface _AXPieShapeLayer : CAShapeLayer
@@ -132,6 +136,14 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     _textColor = [UIColor whiteColor];
     _maxAllowedLabelWidth = 100;
     _seperatorOffsets = 6;
+    _needsUpdateLabel = YES;
+    
+    _titleFont = [UIFont boldSystemFontOfSize:15];
+    _titleColor = [UIColor colorWithWhite:0 alpha:0.8];
+    _titleUsingSelectionColor = YES;
+    _showsTitle = YES;
+    _titleFollowingSelectionPart = YES;
+    [self addSubview:self.titleLabel];
 }
 
 - (void)dealloc {
@@ -164,10 +176,24 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
         if (!label) {
             label = [self descriptionLabelForPartAtIndex:i];
             objc_setAssociatedObject(part, kAXPieChartTextLabelKey, label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        } else if (_needsUpdateLabel) {
+            [self updateDescriptionLabel:label atIndex:i animated:NO];
+        }
+        if (i == _parts.count - 1 && _needsUpdateLabel) {// Set needs update labels to NO if needed.
+            _needsUpdateLabel = NO;
         }
         [self addSubview:label];
     }
     UIGraphicsPopContext();
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGFloat width = sqrt(pow(_hollowRadius, 2)*2);
+    CGSize size = CGSizeMake(width, width);
+    
+    _titleLabel.frame = CGRectMake(CGRectGetWidth(self.frame)*.5-size.width*.5, CGRectGetHeight(self.frame)*.5-size.height*.5, size.width, size.height);
 }
 
 - (void)didTouch:(CGPoint)location {
@@ -181,6 +207,10 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     if (distance <= size/2) {
         if (distance < _hollowRadius) {
             [self handleInnerCircle];
+            return;
+        }
+        
+        if (_parts.count == 0) {
             return;
         }
         
@@ -213,6 +243,17 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
         value += [part.value doubleValue];
     }
     return @(value);
+}
+
+- (UILabel *)titleLabel {
+    if (_titleLabel) return _titleLabel;
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _titleLabel.font = _titleFont;
+    _titleLabel.adjustsFontSizeToFitWidth = YES;
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    return _titleLabel;
 }
 
 #pragma mark - Setters
@@ -269,6 +310,41 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     }];
 }
 
+- (void)setShowsOnlyValues:(BOOL)showsOnlyValues {
+    _showsOnlyValues = showsOnlyValues;
+    _needsUpdateLabel = YES;
+    [self setNeedsDisplay];
+}
+
+- (void)setShowsAbsoluteValues:(BOOL)showsAbsoluteValues {
+    _showsAbsoluteValues = showsAbsoluteValues;
+    _needsUpdateLabel = YES;
+    [self setNeedsDisplay];
+}
+
+- (void)setHidesValues:(BOOL)hidesValues {
+    _hidesValues = hidesValues;
+    _needsUpdateLabel = YES;
+    [self setNeedsDisplay];
+}
+
+
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    if (_showsTitle) {
+        _titleLabel.text = _title;
+    }
+}
+
+- (void)setTitleFont:(UIFont *)titleFont {
+    _titleFont = titleFont;
+    _titleLabel.font = _titleFont;
+}
+
+- (void)setTitleColor:(UIColor *)titleColor {
+    _titleColor = titleColor;
+    _titleLabel.textColor = _titleColor;
+}
 #pragma mark - Public
 - (void)addParts:(AXPieChartPart *)part, ... {
     va_list args;
@@ -360,7 +436,7 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
         AXPieChartPart *part = _parts[i];
         BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
         if (selection) {
-            [self selectIndex:i animated:YES opacity:YES];
+            [self selectIndex:i animated:YES opacity:YES shouldSelectTitle:NO];
         }
     }
     [self removeAllHightLayerFromSuperLayer];
@@ -409,6 +485,22 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
 
 - (void)handleOutsideCircle {
     if (_shouldSelection && _visible) {
+        BOOL shouldSelection = NO;
+        NSUInteger selectionCount = 0;
+        for (NSUInteger i = 0; i < _parts.count; i++) {
+            BOOL selection = [objc_getAssociatedObject(_parts[i], kAXPieChartSelectionKey) boolValue];
+            if (selection) {
+                shouldSelection = YES;
+                selectionCount++;
+            }
+        }
+        if (_titleFollowingSelectionPart) {
+            if (shouldSelection && selectionCount == 1) {
+                [self unselectTitleAnimated:YES];
+            } else {
+                [self unselectTitleAnimated:NO];
+            }
+        }
         [self unselectPartIfNeeded];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(pieChartDidTouchOutsideParts:)]) {
@@ -423,7 +515,7 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     [_parts enumerateObjectsUsingBlock:^(AXPieChartPart *prt, NSUInteger idx, BOOL * stop) {
         BOOL selection = [objc_getAssociatedObject(prt, kAXPieChartSelectionKey) boolValue];
         if (selection) {
-            [self selectIndex:idx animated:YES opacity:NO];
+            [self selectIndex:idx animated:YES opacity:NO shouldSelectTitle:NO];
         }
     }];
 }
@@ -454,14 +546,21 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
                 selectionCount++;
             }
         }
+        if (_titleFollowingSelectionPart) {
+            if (shouldSelection && selectionCount == 1) {
+                [self unselectTitleAnimated:YES];
+            } else {
+                [self unselectTitleAnimated:NO];
+            }
+        }
         [_parts enumerateObjectsUsingBlock:^(AXPieChartPart *part, NSUInteger idx, BOOL *stop) {
             if (shouldSelection && selectionCount < _parts.count) {
                 BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
                 if (!selection) {
-                    [self selectIndex:idx animated:YES opacity:NO];
+                    [self selectIndex:idx animated:YES opacity:NO shouldSelectTitle:NO];
                 }
             } else {
-                [self selectIndex:idx animated:YES opacity:NO];
+                [self selectIndex:idx animated:YES opacity:NO shouldSelectTitle:NO];
             }
         }];
     }
@@ -481,10 +580,12 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
                     AXPieChartPart *part = _parts[i];
                     BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
                     if (selection) {
-                        [self selectIndex:i animated:YES opacity:NO];
+                        [self selectIndex:i animated:YES opacity:NO shouldSelectTitle:YES];
                     }
                 }
             }
+        } else {
+            
         }
         
         /*
@@ -518,8 +619,60 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
          [self updateDescriptionLabel:objc_getAssociatedObject(_parts[i], kAXPieChartTextLabelKey) atIndex:i animated:YES];
          }
          */
+        BOOL shouldSelection = NO;
+        NSUInteger selectionCount = 0;
+        for (NSUInteger i = 0; i < _parts.count; i++) {
+            BOOL selection = [objc_getAssociatedObject(_parts[i], kAXPieChartSelectionKey) boolValue];
+            if (selection) {
+                shouldSelection = YES;
+                selectionCount++;
+            }
+        }
+        if (!shouldSelection || selectionCount <= 0) {
+            [self selectIndex:index animated:YES opacity:NO shouldSelectTitle:YES];
+        } else {
+            if (!_allowsMultipleSelection) {
+                if (_titleFollowingSelectionPart) {
+                    if (selectionCount <= 1) {
+                        [self unselectTitleAnimated:YES];
+                    } else {
+                        [self unselectTitleAnimated:NO];
+                    }
+                }
+            } else {
+                if (selectionCount >= 1 && selectionCount <= 2) {
+                    if (_titleFollowingSelectionPart) {
+                        BOOL isAddSelection = YES;
+                        if ([objc_getAssociatedObject(_parts[index], kAXPieChartSelectionKey) boolValue]) {
+                            isAddSelection = NO;
+                        }
+                        if (selectionCount == 2 && !isAddSelection) {
+                            NSInteger __block selectedIndex = 0;
+                            [_parts enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                AXPieChartPart *part = (AXPieChartPart *)obj;
+                                if ([objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue] && index != idx) {
+                                    selectedIndex = idx;
+                                    *stop = YES;
+                                }
+                            }];
+                            [self selectTitleWithIndex:selectedIndex animated:YES];
+                        } else {
+                            if (selectionCount == 1) {
+                                [self unselectTitleAnimated:YES];
+                            } else {
+                                [self unselectTitleAnimated:NO];
+                            }
+                        }
+                    }
+                } else {
+                    if (_titleFollowingSelectionPart) {
+                        [self unselectTitleAnimated:NO];
+                    }
+                }
+            }
+            [self selectIndex:index animated:YES opacity:NO shouldSelectTitle:NO];
+        }
         
-        [self selectIndex:index animated:YES opacity:NO];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(pieChart:didTouchPart:)]) {
         [_delegate pieChart:self didTouchPart:_parts[index]];
@@ -529,9 +682,22 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     }
 }
 
-- (void)selectIndex:(NSUInteger)index animated:(BOOL)animated opacity:(BOOL)opacity {
+- (void)selectIndex:(NSUInteger)index animated:(BOOL)animated opacity:(BOOL)opacity shouldSelectTitle:(BOOL)shouldSelectTitle {
     AXPieChartPart *part = _parts[index];
     BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
+    
+    if (_showsTitle) {
+        if (_titleFollowingSelectionPart) {
+            if (shouldSelectTitle) {
+                if (!selection) {
+                    [self selectTitleWithIndex:index animated:animated];
+                } else {
+                    [self unselectTitleAnimated:animated];
+                }
+            }
+        }
+    }
+    
     _AXPieShapeLayer *layer = objc_getAssociatedObject(part, kAXPieChartHighLightedLayerKey);
     if (!layer) {
         CGFloat size = kAXPieChartSize + _maxAllowedOffsets*2;
@@ -688,8 +854,8 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     }
     
     CGPoint center = CGPointMake(CGRectGetWidth(self.frame)/2 + distance * sin(rad), CGRectGetHeight(self.frame)/2 - distance * cos(rad));
-    
     label.font = _textFont;
+    [label sizeToFit];
     CGSize labelSize = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
     label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, MIN(labelSize.width, _maxAllowedLabelWidth), labelSize.height);
     label.textColor = _textColor;
@@ -734,6 +900,36 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
         } else {
             label.alpha = .0;
         }
+    }
+}
+
+- (void)selectTitleWithIndex:(NSInteger)index animated:(BOOL)animated {
+    AXPieChartPart *part = _parts[index];
+    _titleLabel.text = part.content;
+    if (_titleUsingSelectionColor) {
+        _titleLabel.textColor = part.color;
+    }
+    [self showTitleLabelAnimated:animated];
+}
+
+- (void)unselectTitleAnimated:(BOOL)animated {
+    if (_showsTitle) {
+        _titleLabel.text = _title;
+    } else {
+        _titleLabel.text = @"";
+    }
+    _titleLabel.textColor = _titleColor;
+    [self showTitleLabelAnimated:animated];
+}
+
+- (void)showTitleLabelAnimated:(BOOL)animated {
+    _titleLabel.alpha = .0;
+    if (animated) {
+        [UIView animateWithDuration:0.35 animations:^{
+            _titleLabel.alpha = 1.0;
+        }];
+    } else {
+        _titleLabel.alpha = 1.0;
     }
 }
 @end
