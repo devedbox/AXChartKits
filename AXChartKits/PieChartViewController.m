@@ -45,7 +45,7 @@
 //            });
 //        }];
 //    });
-    [_pieChart addParts:AXPCPCreate(@"水", [UIColor colorWithRed:0.259 green:0.522 blue:0.957 alpha:1.00], @(371.00)), AXPCPCreate(@"电", [UIColor colorWithRed:0.922 green:0.263 blue:0.208 alpha:1.00], @(234.00)), AXPCPCreate(@"家电", [UIColor colorWithRed:0.984 green:0.741 blue:0.016 alpha:1.00], @(158.50)), AXPCPCreate(@"锁", [UIColor colorWithRed:0.208 green:0.663 blue:0.329 alpha:1.00], @(77.50)), nil];
+    [_pieChart addParts:AXPCPCreate(@"水", [UIColor colorWithRed:0.259 green:0.522 blue:0.957 alpha:1.00], @(371.00)), AXPCPCreate(@"电", [UIColor colorWithRed:0.922 green:0.263 blue:0.208 alpha:1.00], @(0)), AXPCPCreate(@"家电", [UIColor colorWithRed:0.984 green:0.741 blue:0.016 alpha:1.00], @(0)), AXPCPCreate(@"锁", [UIColor colorWithRed:0.208 green:0.663 blue:0.329 alpha:1.00], @(0)), nil];
     _pieChart.maxAllowedOffsets = 20;
     _pieChart.hollowRadius = 80;
     _pieChart.showsTitle = NO;

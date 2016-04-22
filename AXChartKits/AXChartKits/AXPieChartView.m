@@ -42,6 +42,8 @@
 }
 /// Title label.
 @property(strong, nonatomic) UILabel *titleLabel;
+/// Valid count of parts.
+@property(readonly, nonatomic) NSInteger validCount;
 @end
 
 @interface _AXPieShapeLayer : CAShapeLayer
@@ -254,6 +256,17 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
     _titleLabel.numberOfLines = 0;
     _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     return _titleLabel;
+}
+
+- (NSInteger)validCount {
+    NSInteger __block count = 0;
+    [_parts enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        AXPieChartPart *part = (AXPieChartPart *)obj;
+        if ([part.value doubleValue] > 0.0) {
+            count++;
+        }
+    }];
+    return count;
 }
 
 #pragma mark - Setters
@@ -683,6 +696,9 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
 }
 
 - (void)selectIndex:(NSUInteger)index animated:(BOOL)animated opacity:(BOOL)opacity shouldSelectTitle:(BOOL)shouldSelectTitle {
+    if (self.validCount <= 1) {
+        return;
+    }
     AXPieChartPart *part = _parts[index];
     BOOL selection = [objc_getAssociatedObject(part, kAXPieChartSelectionKey) boolValue];
     
