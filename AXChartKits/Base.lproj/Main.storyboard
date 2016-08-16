@@ -388,8 +388,8 @@
                                     <action selector="redrawing1:" destination="v2d-jg-3sI" eventType="touchUpInside" id="Gx6-uf-AZl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8un-TP-mFq">
-                                <rect key="frame" x="283" y="562" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8un-TP-mFq">
+                                <rect key="frame" x="283" y="518" width="34" height="30"/>
                                 <state key="normal" title="draw"/>
                                 <connections>
                                     <action selector="draw:" destination="v2d-jg-3sI" eventType="touchUpInside" id="u7K-o5-42S"/>

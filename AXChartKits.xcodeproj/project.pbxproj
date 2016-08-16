@@ -150,8 +150,8 @@
 				0125A1A71C3383E4001C8F3B /* AXPieChartView.m */,
 				01D3D4601C3B96B4002AC542 /* AXCircleChartView.h */,
 				01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */,
-				013513F51D619A30003BDCEA /* AXBarChartView */,
 				01455A8B1C40AAEB00319DA9 /* AXLineChartView */,
+				013513F51D619A30003BDCEA /* AXBarChartView */,
 			);
 			name = AXChartKits;
 			sourceTree = "<group>";
