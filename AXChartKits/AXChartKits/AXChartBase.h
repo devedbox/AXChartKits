@@ -25,6 +25,11 @@
 
 #import <UIKit/UIKit.h>
 #import <pop/pop.h>
+
+#ifndef kAXDefaultMediaTimingFunction
+#define kAXDefaultMediaTimingFunction [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
+#endif
+
 /// Pop animatalbe property key for start offsets of `AXLineChartCell`.
 extern NSString *const kPOPViewAXCEndOffsets;
 /// Pop animatable property key for end offsets of `AXLineChartCell`.
@@ -33,6 +38,8 @@ extern NSString *const kPOPViewAXCStartOffsets;
 extern NSString *const kPOPViewAXCPieAngle;
 /// Pop animatable property key for percents of `AXCircleChartView`.
 extern NSString *const kPOPViewAXCCirclePercents;
+/// Pop animatable property key for value of `AXBarChartCell`.
+extern NSString *const kPOPViewAXCBarValues;
 /// Line cap.
 typedef NS_ENUM(NSInteger, AXLineCap) {
     /// Butt.

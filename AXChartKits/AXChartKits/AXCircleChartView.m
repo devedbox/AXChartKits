@@ -25,10 +25,6 @@
 
 #import "AXCircleChartView.h"
 
-#ifndef kAXDefaultMediaTimingFunction
-#define kAXDefaultMediaTimingFunction [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]
-#endif
-
 @interface AXCircleChartView ()
 {
     UILabel *_textLabel;

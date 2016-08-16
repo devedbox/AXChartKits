@@ -482,7 +482,7 @@ inline static CGFloat percentsOfAngle(CGPoint center, CGPoint point, CGFloat ang
         };
     }
     anim.duration = 1.2;
-    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.timingFunction = kAXDefaultMediaTimingFunction;
     anim.fromValue = [NSNumber numberWithFloat:.0];
     anim.toValue = [NSNumber numberWithFloat:M_PI*2];
 }

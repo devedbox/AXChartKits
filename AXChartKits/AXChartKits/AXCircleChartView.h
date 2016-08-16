@@ -100,7 +100,7 @@ typedef NS_ENUM(NSUInteger, AXCircleChartTouchAction) {
 @property(nonatomic) UIFont  *textFont;
 /// Fill color.
 @property(strong, nonatomic) IBInspectable UIColor *fillColor;
-/// Duration of shows animation.
+/// Duration of shows animation. Default is 1.2.
 @property(assign, nonatomic) NSTimeInterval duration;
 /// Redraw chart from 0.0 to current value with animation.
 ///

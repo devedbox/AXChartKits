@@ -27,6 +27,7 @@
 #import "AXPieChartView.h"
 #import "AXLineChartCell.h"
 #import "AXCircleChartView.h"
+#import "AXBarChartView/AXBarChartCell.h"
 
 static CGFloat const kPOPLayerAXCQuadThreshold = 1.0;
 
@@ -34,6 +35,7 @@ NSString *const kPOPViewAXCEndOffsets = @"startOffsets";
 NSString *const kPOPViewAXCStartOffsets = @"endOffsets";
 NSString *const kPOPViewAXCPieAngle = @"angle";
 NSString *const kPOPViewAXCCirclePercents = @"percents";
+NSString *const kPOPViewAXCBarValues = @"value";
 
 @implementation AXChartBase
 + (NSArray *)AXCAnimatableProperties {
@@ -76,6 +78,15 @@ NSString *const kPOPViewAXCCirclePercents = @"percents";
               };
               prop.writeBlock = ^(AXCircleChartView *pieChart, const CGFloat values[]) {
                   pieChart.percents = values[0];
+              };
+              prop.threshold = kPOPLayerAXCQuadThreshold;
+          }],
+          [POPAnimatableProperty propertyWithName:kPOPViewAXCBarValues initializer:^(POPMutableAnimatableProperty *prop) {
+              prop.readBlock = ^(AXBarChartCell *barChart, CGFloat values[]) {
+                  values[0] = barChart.value;
+              };
+              prop.writeBlock = ^(AXBarChartCell *barChart, const CGFloat values[]) {
+                  barChart.value = values[0];
               };
               prop.threshold = kPOPLayerAXCQuadThreshold;
           }]
