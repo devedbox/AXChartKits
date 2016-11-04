@@ -26,5 +26,11 @@
 #import "AXChartBase.h"
 
 @interface AXChartView : AXChartBase
-
+/// Background end color.
+///
+/// @discusstion Background color begin with `backgroundColor` and end with `backgroundEndColor`. Background will be gradiented if `backgroundColor` and `backgroundEndColor` are both coloured, and will be single color if any one of `backgroundColor` and `backgroundEndColor` is coloured.
+/// Default is begin with orange and end with red.
+@property(strong, nonatomic) UIColor *backgroundEndColor;
+/// Content insets.
+@property(assign, nonatomic) UIEdgeInsets contentInsets;
 @end

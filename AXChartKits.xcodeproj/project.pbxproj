@@ -21,6 +21,7 @@
 		01C28AAC1C3127F900FDDB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C28AAA1C3127F900FDDB59 /* LaunchScreen.storyboard */; };
 		01C28AB51C312AD700FDDB59 /* AXChartBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C28AB41C312AD700FDDB59 /* AXChartBase.m */; };
 		01CF320A1D65B64D002C5870 /* AXChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CF32091D65B64D002C5870 /* AXChartView.m */; };
+		01CF320D1D65B929002C5870 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CF320C1D65B929002C5870 /* ChartViewController.m */; };
 		01D3D4621C3B96B4002AC542 /* AXCircleChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */; };
 		01D3D4651C3B9FD7002AC542 /* CircleChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */; };
 		479F953A1C56099F87237890 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF2E075A55EF3421FB208CC /* libPods.a */; };
@@ -53,6 +54,8 @@
 		01C28AB41C312AD700FDDB59 /* AXChartBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChartBase.m; path = AXChartKits/AXChartBase.m; sourceTree = "<group>"; };
 		01CF32081D65B64D002C5870 /* AXChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXChartView.h; path = AXChartKits/AXChartView.h; sourceTree = "<group>"; };
 		01CF32091D65B64D002C5870 /* AXChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXChartView.m; path = AXChartKits/AXChartView.m; sourceTree = "<group>"; };
+		01CF320B1D65B929002C5870 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		01CF320C1D65B929002C5870 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		01D3D4601C3B96B4002AC542 /* AXCircleChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXCircleChartView.h; path = AXChartKits/AXCircleChartView.h; sourceTree = "<group>"; };
 		01D3D4611C3B96B4002AC542 /* AXCircleChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXCircleChartView.m; path = AXChartKits/AXCircleChartView.m; sourceTree = "<group>"; };
 		01D3D4631C3B9FD7002AC542 /* CircleChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleChartViewController.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				01D3D4641C3B9FD7002AC542 /* CircleChartViewController.m */,
 				013513F91D61A8DC003BDCEA /* BarChartViewController.h */,
 				013513FA1D61A8DC003BDCEA /* BarChartViewController.m */,
+				01CF320B1D65B929002C5870 /* ChartViewController.h */,
+				01CF320C1D65B929002C5870 /* ChartViewController.m */,
 				01C28AB61C312ADB00FDDB59 /* AXChartKits */,
 				01C28AA51C3127F900FDDB59 /* Main.storyboard */,
 				01C28AA81C3127F900FDDB59 /* Assets.xcassets */,
@@ -212,6 +217,7 @@
 				TargetAttributes = {
 					01C28A981C3127F900FDDB59 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 67DW4J3U7D;
 					};
 				};
 			};
@@ -302,6 +308,7 @@
 				013513F81D61A886003BDCEA /* TableViewController.m in Sources */,
 				01C28AA41C3127F900FDDB59 /* LineChartViewController.m in Sources */,
 				013513F41D619A2D003BDCEA /* AXBarChartCell.m in Sources */,
+				01CF320D1D65B929002C5870 /* ChartViewController.m in Sources */,
 				01D3D4621C3B96B4002AC542 /* AXCircleChartView.m in Sources */,
 				0125A1AB1C3384E4001C8F3B /* PieChartViewController.m in Sources */,
 				01C28AA11C3127F900FDDB59 /* AppDelegate.m in Sources */,
@@ -422,6 +429,7 @@
 			baseConfigurationReference = A4E30F54D9C023CFC7A1750F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 67DW4J3U7D;
 				INFOPLIST_FILE = AXChartKits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -435,6 +443,7 @@
 			baseConfigurationReference = BA2A2B3CA17D5484B1345B72 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 67DW4J3U7D;
 				INFOPLIST_FILE = AXChartKits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

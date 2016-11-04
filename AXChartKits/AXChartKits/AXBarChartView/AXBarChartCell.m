@@ -225,6 +225,7 @@
     if (_redrawing) return;
     _visible = YES;
     _redrawing = YES;
+    _value = value;
     if (!animated) {
         [self setNeedsDisplay];
         if (completion) {
@@ -232,26 +233,23 @@
         }
         return;
     }
-    POPBasicAnimation *anim = [self pop_animationForKey:kPOPViewAXCBarValues];
-    if(anim == nil)
-    {
-        anim = [POPBasicAnimation animation];
-        anim.property = [AXChartBase AXCPropertyWithName:kPOPViewAXCBarValues];
-        [self pop_addAnimation:anim forKey:kPOPViewAXCBarValues];
-        anim.completionBlock=^(POPAnimation *ani, BOOL finished){
-            if (finished) {
-                _redrawing = NO;
-                [self setNeedsDisplay];
-                if (completion) {
-                    completion();
-                }
+    POPBasicAnimation *anim = [POPBasicAnimation animation];
+    anim.property = [AXChartBase AXCPropertyWithName:kPOPViewAXCBarValues];
+    anim.completionBlock=^(POPAnimation *ani, BOOL finished){
+        if (finished) {
+            _redrawing = NO;
+            [self setNeedsDisplay];
+            if (completion) {
+                completion();
             }
-        };
-    }
+        }
+    };
     anim.duration = _duration;
     anim.timingFunction = kAXDefaultMediaTimingFunction;
     anim.fromValue = [NSNumber numberWithFloat:.0];
     anim.toValue = [NSNumber numberWithFloat:value];
+    [self pop_removeAnimationForKey:kPOPViewAXCBarValues];
+    [self pop_addAnimation:anim forKey:kPOPViewAXCBarValues];
 }
 
 #pragma mark - Private

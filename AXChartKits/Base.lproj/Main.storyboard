@@ -224,6 +224,33 @@
                                             <segue destination="v2d-jg-3sI" kind="show" id="OqP-uO-KPO"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="PZO-3M-8Dd" detailTextLabel="llp-MB-ZNL" style="IBUITableViewCellStyleSubtitle" id="PTk-Yy-nRD">
+                                        <rect key="frame" x="0.0" y="275" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PTk-Yy-nRD" id="A0Z-7B-UQK">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Chart view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PZO-3M-8Dd">
+                                                    <rect key="frame" x="15" y="6" width="78" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="shows background chart view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="llp-MB-ZNL">
+                                                    <rect key="frame" x="15" y="25.5" width="156" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dWu-B2-cS9" kind="show" id="6fS-13-aYe"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -345,6 +372,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPi-Py-9uI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="839" y="825"/>
+        </scene>
+        <!--Chart View-->
+        <scene sceneID="6Ey-47-Luv">
+            <objects>
+                <viewController id="dWu-B2-cS9" customClass="ChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9r8-0v-jkI"/>
+                        <viewControllerLayoutGuide type="bottom" id="qaI-mZ-Cu0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JgY-Sd-u80">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-VY-evh" customClass="AXChartView">
+                                <rect key="frame" x="10" y="84" width="580" height="168"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="HCf-ob-Jm5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="self.layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gqY-VY-evh" secondAttribute="trailing" constant="10" id="5aJ-Gg-BZF"/>
+                            <constraint firstItem="gqY-VY-evh" firstAttribute="top" secondItem="9r8-0v-jkI" secondAttribute="bottom" constant="20" id="dg8-RN-qYb"/>
+                            <constraint firstItem="gqY-VY-evh" firstAttribute="leading" secondItem="JgY-Sd-u80" secondAttribute="leading" constant="10" id="xSb-rD-ud2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chart View" id="9vC-9t-RgZ"/>
+                    <connections>
+                        <outlet property="chartView" destination="gqY-VY-evh" id="nXs-tz-lP4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moz-eO-M37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211" y="1544"/>
         </scene>
         <!--Bar Chart-->
         <scene sceneID="X2x-Sf-ij3">
