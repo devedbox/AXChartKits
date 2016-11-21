@@ -33,8 +33,8 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_cell0 updateToValue:1.0 animated:YES completion:NULL];
-        [_cell1 updateToValue:0.9 animated:YES completion:NULL];
-        [_cell2 updateToValue:0.8 animated:YES completion:NULL];
+        [_cell1 updateToValue:0.5 animated:YES completion:NULL];
+        [_cell2 updateToValue:0.5 animated:YES completion:NULL];
     });
 }
 

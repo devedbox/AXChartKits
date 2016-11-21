@@ -137,7 +137,7 @@
         _shapeLayer.lineCap = kCALineCapRound;
         // Set up value of shape layer.
         _shapeLayer.strokeStart = .0;
-        _shapeLayer.strokeEnd = _value;
+        _shapeLayer.strokeEnd = 1.0;
     } else {
         _shapeLayer.lineWidth = .0;
         _shapeLayer.strokeEnd = .0;
@@ -222,11 +222,12 @@
 }
 
 - (void)updateToValue:(CGFloat)value animated:(BOOL)animated completion:(dispatch_block_t)completion {
-    if (_redrawing) return;
+    if (_redrawing && animated) return;
     _visible = YES;
     _redrawing = YES;
     _value = value;
     if (!animated) {
+        _redrawing = YES;
         [self setNeedsDisplay];
         if (completion) {
             completion();
