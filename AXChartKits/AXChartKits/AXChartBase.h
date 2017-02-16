@@ -34,6 +34,10 @@
 extern NSString *const kPOPViewAXCStartOffsets;
 /// Pop animatable property key for end offsets of `AXLineChartCell`.
 extern NSString *const kPOPViewAXCEndOffsets;
+/// Pop animatable property key for start dash drawing progress of `AXLineChartCell`.
+extern NSString *const kPOPViewAXCStartDashDrawingProgress;
+/// Pop animatable property key for end dash drawing progress of `AXLineChartCell`.
+extern NSString *const kPOPViewAXCEndDashDrawingProgress;
 /// Pop animatable property key for angle of `AXPieChartView`.
 extern NSString *const kPOPViewAXCPieAngle;
 /// Pop animatable property key for percents of `AXCircleChartView`.

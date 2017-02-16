@@ -33,6 +33,8 @@ static CGFloat const kPOPLayerAXCQuadThreshold = 1.0;
 
 NSString *const kPOPViewAXCStartOffsets = @"startOffsets";
 NSString *const kPOPViewAXCEndOffsets = @"endOffsets";
+NSString *const kPOPViewAXCStartDashDrawingProgress = @"startDashDrawingProgress";
+NSString *const kPOPViewAXCEndDashDrawingProgress = @"endDashDrawingProgress";
 NSString *const kPOPViewAXCPieAngle = @"angle";
 NSString *const kPOPViewAXCCirclePercents = @"percents";
 NSString *const kPOPViewAXCBarValues = @"value";
@@ -87,6 +89,26 @@ NSString *const kPOPViewAXCBarValues = @"value";
               };
               prop.writeBlock = ^(AXBarChartCell *barChart, const CGFloat values[]) {
                   barChart.value = values[0];
+              };
+              prop.threshold = kPOPLayerAXCQuadThreshold;
+          }],
+          [POPAnimatableProperty propertyWithName:kPOPViewAXCStartDashDrawingProgress initializer:^(POPMutableAnimatableProperty *prop) {
+              prop.readBlock = ^(AXLineChartCell *lineChart, CGFloat values[]) {
+                  values[0] = lineChart.startDashDrawingProgress;
+              };
+              prop.writeBlock = ^(AXLineChartCell *lineChart, const CGFloat values[]) {
+                  lineChart.startDashDrawingProgress = values[0];
+                  
+              };
+              prop.threshold = kPOPLayerAXCQuadThreshold;
+          }],
+          [POPAnimatableProperty propertyWithName:kPOPViewAXCEndDashDrawingProgress initializer:^(POPMutableAnimatableProperty *prop) {
+              prop.readBlock = ^(AXLineChartCell *lineChart, CGFloat values[]) {
+                  values[0] = lineChart.endDashDrawingProgress;
+              };
+              prop.writeBlock = ^(AXLineChartCell *lineChart, const CGFloat values[]) {
+                  lineChart.endDashDrawingProgress = values[0];
+                  
               };
               prop.threshold = kPOPLayerAXCQuadThreshold;
           }]
