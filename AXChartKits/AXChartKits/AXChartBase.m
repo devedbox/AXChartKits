@@ -31,8 +31,8 @@
 
 static CGFloat const kPOPLayerAXCQuadThreshold = 1.0;
 
-NSString *const kPOPViewAXCEndOffsets = @"startOffsets";
-NSString *const kPOPViewAXCStartOffsets = @"endOffsets";
+NSString *const kPOPViewAXCStartOffsets = @"startOffsets";
+NSString *const kPOPViewAXCEndOffsets = @"endOffsets";
 NSString *const kPOPViewAXCPieAngle = @"angle";
 NSString *const kPOPViewAXCCirclePercents = @"percents";
 NSString *const kPOPViewAXCBarValues = @"value";
