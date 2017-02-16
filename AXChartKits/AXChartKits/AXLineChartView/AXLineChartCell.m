@@ -64,6 +64,9 @@
     _isEnding = NO;
     _shouldShowDashAtStart = NO;
     _shouldShowDashAtEnd = NO;
+    
+    _startDashDrawingProgress = 1.0;
+    _endDashDrawingProgress = 1.0;
 }
 #pragma mark - Override
 
@@ -119,7 +122,7 @@
                 CGContextMoveToPoint(context, 0, startPoint.y+_endOffsets * (CGRectGetHeight(drawbox)*(endLocation-startLocation)/CGRectGetWidth(drawbox)));
                 CGFloat length[] = {_lineWidth/2, _lineWidth*2};
                 CGContextSetLineDash(context, _lineWidth/2, length, 2);
-                CGContextAddLineToPoint(context, 0, CGRectGetHeight(drawbox));
+                CGContextAddLineToPoint(context, 0, CGRectGetHeight(drawbox) * _startDashDrawingProgress);
                 CGContextStrokePath(context);
             }
             
@@ -127,7 +130,7 @@
                 CGContextMoveToPoint(context, CGRectGetWidth(drawbox), endPoint.y+_endOffsets * (CGRectGetHeight(drawbox)*(startLocation)/CGRectGetWidth(drawbox)));
                 CGFloat length[] = {_lineWidth/2, _lineWidth*2};
                 CGContextSetLineDash(context, _lineWidth/2, length, 2);
-                CGContextAddLineToPoint(context, CGRectGetWidth(drawbox), CGRectGetHeight(drawbox));
+                CGContextAddLineToPoint(context, CGRectGetWidth(drawbox), CGRectGetHeight(drawbox) * _endDashDrawingProgress);
                 CGContextStrokePath(context);
             }
             break;

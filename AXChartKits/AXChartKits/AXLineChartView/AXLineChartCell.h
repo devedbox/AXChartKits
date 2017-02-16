@@ -57,6 +57,10 @@ typedef NS_ENUM(NSInteger, AXLineChartDrawingDirection) {
 @property(assign, nonatomic) BOOL shouldShowDashAtStart;
 /// Should show dash at end point.
 @property(assign, nonatomic) BOOL shouldShowDashAtEnd;
+/// Start dash drawing progress. Animatable for <pop>. Defaults to 1.0.
+@property(assign, nonatomic) NSUInteger startDashDrawingProgress;
+/// End dash drawing progress. Animatable for <pop>. Defaults to 1.0.
+@property(assign, nonatomic) NSUInteger endDashDrawingProgress;
 ///
 - (void)redrawAnimated:(BOOL)animated reverse:(BOOL)reverse duration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve completion:(dispatch_block_t)completion;
 @end
