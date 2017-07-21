@@ -1110,7 +1110,7 @@ static BOOL SeperatorResultEaqulToResult(SeperatorResult result, SeperatorResult
                 register CGFloat delta1 = pow(_b(d), 2) - 4*a*_c(d);
                 register CGFloat delta2 = pow(_b(-d), 2) - 4*a*_c(-d);
                 
-                register CGFloat y1, y2, y3, y4, x1, x2, x3, x4;
+                register CGFloat y1 = 0.0, y2 = 0.0, y3 = 0.0, y4 = 0.0, x1 = 0.0, x2 = 0.0, x3 = 0.0, x4 = 0.0;
                 
                 if (delta1 >= 0) {
                     y1 = (-_b(d) + sqrt(delta1)) / (2*a);
